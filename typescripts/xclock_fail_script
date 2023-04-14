@@ -1,0 +1,70 @@
+Script started on Tue Apr 11 21:58:00 2023
+Restored session: Tue Apr 11 21:57:58 PDT 2023
+[1m[7m%[27m[1m[0m                                                                                                                                         
+ 
+]7;file://campus-027-040.ucdavis.edu/Users/arjashok
+[0m[27m[24m[Jarjashok@campus-027-040 ~ % [K[?2004hsssh -Y aashok17@pc17.cs.ucdavis.edu[?2004l
+
+
+aashok17@pc17.cs.ucdavis.edu's password: 
+Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-69-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Tue Apr 11 09:58:20 PM PDT 2023
+
+  System load:           0.01904296875
+  Usage of /:            48.0% of 97.87GB
+  Memory usage:          4%
+  Swap usage:            0%
+  Temperature:           43.0 C
+  Processes:             326
+  Users logged in:       0
+  IPv4 address for eno1: 128.120.211.171
+  IPv6 address for eno1: 2607:f810:c20:a:7bc5:75d3:115a:34c8
+  IPv6 address for eno1: 2607:f810:c20:a:1ac0:4dff:fe28:e737
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+ * Introducing Expanded Security Maintenance for Applications.
+   Receive updates to over 25,000 software packages with your
+   Ubuntu Pro subscription. Free for personal use.
+
+     https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+1 update can be applied immediately.
+1 of these updates is a standard security update.
+To see these additional updates run: apt list --upgradable
+
+23 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+
+Last login: Tue Apr 11 21:56:44 2023 from 172.25.165.99
+
+[?2004haashok17@COE-CS-pc17:~$ xclock
+[?2004l
+Error: Can't open display: 
+[?2004haashok17@COE-CS-pc17:~$ exit
+[?2004l
+logout
+Connection to pc17.cs.ucdavis.edu closed.
+
+[1m[7m%[27m[1m[0m                                                                                                                                         
+ 
+]7;file://campus-027-040.ucdavis.edu/Users/arjashok
+[0m[27m[24m[Jarjashok@campus-027-040 ~ % [K[?2004heexit[?2004l
+
+
+Saving session...
+...saving history...truncating history files...
+...completed.
+
+Script done on Tue Apr 11 21:58:40 2023

@@ -1,0 +1,2811 @@
+Script started on Mon Apr 10 22:06:50 2023
+[1m[7m%[27m[1m[0m                                                                                                                                                                      [0m[27m[24m[J(base) arjashok@campus-043-109 ECS 189G % [K[?2004hR[?2004l
+
+R version 4.2.3 (2023-03-15) -- "Shortstop Beagle"
+Copyright (C) 2023 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin22.3.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[?2004h> library(devtools)
+[?2004l[1mLoading required package: usethis
+[0m[?25h[?2004h> install_github("[7mhttps://github.com/matloff/qeML.git[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chttps://github.com/matloff/qeML.git")
+[?2004l[1mDownloading GitHub repo matloff/qeML@HEAD
+[0m[1mInstalling 19 packages: RcppArmadillo, float, MatrixExtra, SparseM, nloptr, minqa, rsparse, RcppEigen, lme4, quantreg, pbkrtest, text2vec, glmnet, car, mvtnorm, lmtest, regtools, grf, partools
+[0m[1mInstalling packages into ‘/opt/homebrew/lib/R/4.2/site-library’
+(as ‘lib’ is unspecified)
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/RcppArmadillo_0.12.2.0.0.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 1368134 bytes (1.3 MB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 1.3 MB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/float_0.3-1.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 1438675 bytes (1.4 MB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 1.4 MB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/MatrixExtra_0.1.13.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 219491 bytes (214 KB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 214 KB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/SparseM_1.81.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 735100 bytes (717 KB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 717 KB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/nloptr_2.0.3.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 2219877 bytes (2.1 MB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 2.1 MB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/minqa_1.2.5.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 54415 bytes (53 KB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 53 KB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/rsparse_0.5.1.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 212190 bytes (207 KB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 207 KB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/RcppEigen_0.3.3.9.3.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 1470790 bytes (1.4 MB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 1.4 MB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/lme4_1.1-32.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 2946012 bytes (2.8 MB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 2.8 MB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/quantreg_5.95.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 1026027 bytes (1001 KB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 1001 KB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/pbkrtest_0.5.2.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 75295 bytes (73 KB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 73 KB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/text2vec_0.6.3.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 3306961 bytes (3.2 MB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 3.2 MB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/glmnet_4.1-7.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 2436304 bytes (2.3 MB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 2.3 MB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/car_3.1-2.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 579829 bytes (566 KB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 566 KB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/mvtnorm_1.1-3.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 166421 bytes (162 KB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 162 KB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/lmtest_0.9-40.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 230313 bytes (224 KB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 224 KB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/regtools_1.7.0.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 2443029 bytes (2.3 MB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 2.3 MB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/grf_2.2.1.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 202127 bytes (197 KB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 197 KB
+
+[0m[1mtrying URL 'https://cloud.r-project.org/src/contrib/partools_1.1.6.tar.gz'
+[0m[1mContent type 'application/x-gzip'[0m[1m length 4698097 bytes (4.5 MB)
+[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m=[0m[1m
+[0m[1mdownloaded 4.5 MB
+
+[0m* installing *source* package ‘RcppArmadillo’ ...
+** package ‘RcppArmadillo’ successfully unpacked and MD5 sums checked
+** using staged installation
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C++... yes
+checking whether clang++ -std=gnu++14 accepts -g... yes
+checking for clang++ -std=gnu++14 option to enable C++11 features... none needed
+checking how to run the C++ preprocessor... clang++ -std=gnu++14 -E
+checking whether the compiler supports GNU C++... (cached) yes
+checking whether clang++ -std=gnu++14 accepts -g... (cached) yes
+checking for clang++ -std=gnu++14 option to enable C++11 features... (cached) none needed
+checking whether we have a suitable tempdir... /var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T
+checking whether R CMD SHLIB can already compile programs using OpenMP... no
+checking whether g++ version is sufficient... almost
+configure: WARNING: Compiler self-identifies as being compliant with GNUC extensions but is not g++.
+checking for macOS... found
+checking for macOS Apple compiler... not found
+checking for clang compiler... found
+checking for OpenMP compatible version of clang... not found
+configure: WARNING: OpenMP unavailable and turned off.
+checking LAPACK_LIBS... R-supplied partial LAPACK found
+configure: WARNING: Some complex-valued LAPACK functions may not be available
+configure: creating ./config.status
+config.status: creating inst/include/RcppArmadillo/config/RcppArmadilloConfigGenerated.h
+config.status: creating src/Makevars
+** libs
+clang++ -std=gnu++14 -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG -I../inst/include -I'/opt/homebrew/lib/R/4.2/site-library/Rcpp/include' -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fPIC  -g -O2  -c RcppArmadillo.cpp -o RcppArmadillo.o
+clang++ -std=gnu++14 -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG -I../inst/include -I'/opt/homebrew/lib/R/4.2/site-library/Rcpp/include' -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fPIC  -g -O2  -c RcppExports.cpp -o RcppExports.o
+clang++ -std=gnu++14 -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG -I../inst/include -I'/opt/homebrew/lib/R/4.2/site-library/Rcpp/include' -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fPIC  -g -O2  -c fastLm.cpp -o fastLm.o
+clang++ -std=gnu++14 -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -L/opt/homebrew/opt/gettext/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/xz/lib -L/opt/homebrew/lib -o RcppArmadillo.so RcppArmadillo.o RcppExports.o fastLm.o -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -lRlapack -L/opt/homebrew/opt/openblas/lib -lopenblas -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12 -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc -L/opt/homebrew/opt/gcc/lib/gcc/current -lgfortran -lemutls_w -lquadmath -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -lR -lintl -Wl,-framework -Wl,CoreFoundation
+ld: warning: directory not found for option '-L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12'
+ld: library not found for -lemutls_w
+clang: [0;1;31merror: [0m[1mlinker command failed with exit code 1 (use -v to see invocation)[0m
+make: *** [RcppArmadillo.so] Error 1
+ERROR: compilation failed for package ‘RcppArmadillo’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/RcppArmadillo’
+* installing *source* package ‘float’ ...
+** package ‘float’ successfully unpacked and MD5 sums checked
+** using staged installation
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether clang accepts -g... yes
+checking for clang option to enable C11 features... none needed
+checking for sinf in -lm... yes
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking whether byte ordering is bigendian... no
+checking size of int... 4
+checking how to run the C preprocessor... clang -E
+checking for clang option to support OpenMP... unsupported
+checking for echo... yes
+checking for grep... yes
+checking for sgetrf_ in -lRlapack... no
+checking for sgemm_ in -lopenblas... no
+checking for sgemm_ in -lmkl... no
+checking for sgemm_ in -latlas... no
+checking for sgemm_ in -lblas... no
+checking for sgetrf_ in -lopenblas... no
+checking for sgetrf_ in -lmkl... no
+checking for sgetrf_ in -latlas... no
+checking for sgetrf_ in -llapack... no
+ 
+******************* Results of float package configure *******************
+* OpenMP Report:
+    >> OPENMP_CFLAGS=
+    >> OMPFLAGS_C=
+    >> OMPFLAGS_F=
+* byte order: little endian
+* NOTE: no single precision BLAS symbols found. Building reference version
+    >> BLAS_LIBFLAGS=
+* NOTE: no single precision LAPACK symbols found. Building reference version
+    >> LAPACK_LIBFLAGS=
+
+No single precision BLAS functions detected in your R BLAS library, so we are using the reference implementation shipped with the float package. If you believe you are seeing this message in error, please contact the package maintainer.
+*************************************************************************
+ 
+configure: creating ./config.status
+config.status: creating src/Makevars
+config.status: creating src/endianness.h
+config.status: creating R/02-libflags.r
+config.status: creating src/config.h
+** libs
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c backsolve.c -o backsolve.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c binary.c -o binary.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c chol.c -o chol.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c chol2inv.c -o chol2inv.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c colSums.c -o colSums.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c cond.c -o cond.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c converters.c -o converters.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c crossprod.c -o crossprod.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c eigen.c -o eigen.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c extremes.c -o extremes.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c float_native.c -o float_native.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c isSymmetric.c -o isSymmetric.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c machine.c -o machine.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c math.c -o math.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c matmult.c -o matmult.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c NA.c -o NA.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c norm.c -o norm.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c qr.c -o qr.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c rand.c -o rand.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c scale.c -o scale.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c sign.c -o sign.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c solve.c -o solve.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c sum.c -o sum.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c svd.c -o svd.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c sweep.c -o sweep.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c xpose.c -o xpose.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c utils/matmult.c -o utils/matmult.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c utils/symmetrize.c -o utils/symmetrize.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include/ -fPIC  -g -O2  -c utils/xpose.c -o utils/xpose.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls -g -O2 -fPIC  -g -O2  -c slapack_wrap.f -o slapack_wrap.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls -g -O2 -fPIC  -g -O2  -c  lapack/la_constants.f90 -o lapack/la_constants.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls -g -O2 -fPIC  -g -O2  -c  lapack/la_xisnan.f90 -o lapack/la_xisnan.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls -g -O2 -fPIC  -g -O2  -c  lapack/sf90.f90 -o lapack/sf90.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls -g -O2 -fPIC  -g -O2  -c lapack/slapack1.f -o lapack/slapack1.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls -g -O2 -fPIC  -g -O2  -c lapack/slapack2.f -o lapack/slapack2.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls -g -O2 -fPIC  -g -O2  -c lapack/slapack3.f -o lapack/slapack3.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls -g -O2 -fPIC  -g -O2  -c lapack/slapack4.f -o lapack/slapack4.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls -g -O2 -fPIC  -g -O2  -c lapack/slamchf77.f -o lapack/slamchf77.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls -g -O2 -fPIC  -g -O2  -c lapack/ilas.f -o lapack/ilas.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls -g -O2 -fPIC  -g -O2  -c lapack/sblas.f -o lapack/sblas.o
+clang -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -L/opt/homebrew/opt/gettext/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/xz/lib -L/opt/homebrew/lib -o float.so backsolve.o binary.o chol.o chol2inv.o colSums.o cond.o converters.o crossprod.o eigen.o extremes.o float_native.o isSymmetric.o machine.o math.o matmult.o NA.o norm.o qr.o rand.o scale.o sign.o solve.o sum.o svd.o sweep.o xpose.o utils/matmult.o utils/symmetrize.o utils/xpose.o slapack_wrap.o lapack/la_xisnan.o lapack/la_constants.o lapack/sf90.o lapack/slapack1.o lapack/slapack2.o lapack/slapack3.o lapack/slapack4.o lapack/slamchf77.o lapack/ilas.o lapack/sblas.o -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12 -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc -L/opt/homebrew/opt/gcc/lib/gcc/current -lgfortran -lemutls_w -lquadmath -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12 -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc -L/opt/homebrew/opt/gcc/lib/gcc/current -lgfortran -lemutls_w -lquadmath -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -lR -lintl -Wl,-framework -Wl,CoreFoundation
+ld: warning: directory not found for option '-L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12'
+ld: warning: directory not found for option '-L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12'
+ld: library not found for -lemutls_w
+clang: [0;1;31merror: [0m[1mlinker command failed with exit code 1 (use -v to see invocation)[0m
+make: *** [float.so] Error 1
+ERROR: compilation failed for package ‘float’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/float’
+* installing *source* package ‘SparseM’ ...
+** package ‘SparseM’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c bckslv.f -o bckslv.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c chol.f -o chol.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c chol2csr.f -o chol2csr.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c cholesky.f -o cholesky.o
+[01m[Kcholesky.f:2948:72:[m[K
+
+ 2948 |                          IF  ( NODE )  400, 900, 500
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Arithmetic IF statement at [01;35m[K(1)[m[K
+[01m[Kcholesky.f:2982:72:[m[K
+
+ 2982 |                  IF  ( RNODE )  1100, 1800, 1200
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Arithmetic IF statement at [01;35m[K(1)[m[K
+[01m[Kcholesky.f:3299:72:[m[K
+
+ 3299 |                      IF  ( ENODE )  400, 800, 500
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Arithmetic IF statement at [01;35m[K(1)[m[K
+[01m[Kcholesky.f:3356:72:[m[K
+
+ 3356 |                              IF  ( NODE )  1000, 2100, 1100
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Arithmetic IF statement at [01;35m[K(1)[m[K
+[01m[Kcholesky.f:3430:72:[m[K
+
+ 3430 |                                          IF  ( NODE )  1700, 2000, 1800
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Arithmetic IF statement at [01;35m[K(1)[m[K
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c csr.f -o csr.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c extract.f -o extract.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fPIC  -g -O2  -c init.c -o init.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c sparskit.f -o sparskit.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c subscr.f -o subscr.o
+clang -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -L/opt/homebrew/opt/gettext/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/xz/lib -L/opt/homebrew/lib -o SparseM.so bckslv.o chol.o chol2csr.o cholesky.o csr.o extract.o init.o sparskit.o subscr.o -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12 -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc -L/opt/homebrew/opt/gcc/lib/gcc/current -lgfortran -lemutls_w -lquadmath -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -lR -lintl -Wl,-framework -Wl,CoreFoundation
+ld: warning: directory not found for option '-L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12'
+ld: library not found for -lemutls_w
+clang: [0;1;31merror: [0m[1mlinker command failed with exit code 1 (use -v to see invocation)[0m
+make: *** [SparseM.so] Error 1
+ERROR: compilation failed for package ‘SparseM’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/SparseM’
+* installing *source* package ‘nloptr’ ...
+** package ‘nloptr’ successfully unpacked and MD5 sums checked
+** using staged installation
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C++... yes
+checking whether clang++ -std=gnu++14 accepts -g... yes
+checking for clang++ -std=gnu++14 option to enable C++11 features... none needed
+checking how to run the C++ preprocessor... clang++ -std=gnu++14 -E
+checking whether the compiler supports GNU C++... (cached) yes
+checking whether clang++ -std=gnu++14 accepts -g... (cached) yes
+checking for clang++ -std=gnu++14 option to enable C++11 features... (cached) none needed
+checking for pkg-config... /opt/homebrew/bin/pkg-config
+checking if pkg-config knows NLopt... no
+checking for cmake... /opt/homebrew/bin/cmake
+using NLopt via local cmake build on arm64 
+set CMAKE_BIN=/opt/homebrew/bin/cmake
+set CC=clang
+set CFLAGS=-I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include -fPIC -g -O2
+set CXX=clang++
+set CXXFLAGS=-std=gnu++11 -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include -fPIC -g -O2
+set LDFLAGS=-L/opt/homebrew/opt/gettext/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/xz/lib -L/opt/homebrew/lib
+-- The C compiler identification is AppleClang 14.0.3.14030022
+-- The CXX compiler identification is AppleClang 14.0.3.14030022
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- NLopt version 2.7.1
+-- Looking for getopt.h
+-- Looking for getopt.h - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for time.h
+-- Looking for time.h - found
+-- Looking for sys/time.h
+-- Looking for sys/time.h - found
+-- Looking for getpid
+-- Looking for getpid - found
+-- Looking for syscall
+-- Looking for syscall - found
+-- Looking for isinf
+-- Looking for isinf - found
+-- Looking for isnan
+-- Looking for isnan - found
+-- Looking for gettimeofday
+-- Looking for gettimeofday - found
+-- Looking for qsort_r
+-- Looking for qsort_r - found
+-- Looking for time
+-- Looking for time - found
+-- Looking for copysign
+-- Looking for copysign - found
+-- Looking for getopt
+-- Looking for getopt - found
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of uint32_t
+-- Check size of uint32_t - done
+-- Check size of unsigned int
+-- Check size of unsigned int - done
+-- Check size of unsigned long
+-- Check size of unsigned long - done
+-- Looking for sqrt in m
+-- Looking for sqrt in m - found
+-- Looking for fpclassify
+-- Looking for fpclassify - TRUE
+-- Performing Test HAVE_THREAD_LOCAL_STORAGE
+-- Performing Test HAVE_THREAD_LOCAL_STORAGE - Success
+-- Performing Test HAVE_THREAD_LOCAL_STORAGE
+-- Performing Test HAVE_THREAD_LOCAL_STORAGE - Failed
+-- Looking for __cplusplus
+-- Looking for __cplusplus - found
+-- Performing Test SUPPORTS_STDCXX11
+-- Performing Test SUPPORTS_STDCXX11 - Success
+-- Performing Test HAS_FPIC
+-- Performing Test HAS_FPIC - Success
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /private/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T/RtmpDVhKaK/R.INSTALL9fda6d8647f/nloptr/src/nlopt-build
+[  3%] [34m[1mGenerating nlopt.f[0m
+[  3%] [34m[1mGenerating nlopt.hpp[0m
+[  3%] Built target generate-fortran
+[  3%] Built target generate-cpp
+[  7%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/direct/DIRect.c.o[0m
+[  7%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/direct/direct_wrap.c.o[0m
+[  9%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/direct/DIRserial.c.o[0m
+[ 11%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/direct/DIRsubrout.c.o[0m
+[ 13%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/cdirect/cdirect.c.o[0m
+[ 15%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/cdirect/hybrid.c.o[0m
+[ 19%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/luksan/plis.c.o[0m
+[ 19%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/praxis/praxis.c.o[0m
+[ 21%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/luksan/plip.c.o[0m
+[ 23%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/luksan/pnet.c.o[0m
+[ 25%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/luksan/mssubs.c.o[0m
+[ 27%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/luksan/pssubs.c.o[0m
+[ 29%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/crs/crs.c.o[0m
+[ 31%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/mlsl/mlsl.c.o[0m
+[ 33%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/mma/mma.c.o[0m
+[ 35%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/mma/ccsa_quadratic.c.o[0m
+[ 37%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/cobyla/cobyla.c.o[0m
+[ 39%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/newuoa/newuoa.c.o[0m
+[ 41%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/neldermead/nldrmd.c.o[0m
+[ 43%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/neldermead/sbplx.c.o[0m
+[ 45%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/auglag/auglag.c.o[0m
+[ 47%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/bobyqa/bobyqa.c.o[0m
+[ 49%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/isres/isres.c.o[0m
+[ 50%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/slsqp/slsqp.c.o[0m
+[ 52%] [32mBuilding C object CMakeFiles/nlopt.dir/src/algs/esch/esch.c.o[0m
+[ 54%] [32mBuilding C object CMakeFiles/nlopt.dir/src/api/general.c.o[0m
+[ 56%] [32mBuilding C object CMakeFiles/nlopt.dir/src/api/options.c.o[0m
+[ 58%] [32mBuilding C object CMakeFiles/nlopt.dir/src/api/optimize.c.o[0m
+[ 60%] [32mBuilding C object CMakeFiles/nlopt.dir/src/api/deprecated.c.o[0m
+[ 62%] [32mBuilding C object CMakeFiles/nlopt.dir/src/api/f77api.c.o[0m
+[ 64%] [32mBuilding C object CMakeFiles/nlopt.dir/src/util/mt19937ar.c.o[0m
+[ 66%] [32mBuilding C object CMakeFiles/nlopt.dir/src/util/sobolseq.c.o[0m
+[ 68%] [32mBuilding C object CMakeFiles/nlopt.dir/src/util/timer.c.o[0m
+[ 70%] [32mBuilding C object CMakeFiles/nlopt.dir/src/util/stop.c.o[0m
+[ 72%] [32mBuilding C object CMakeFiles/nlopt.dir/src/util/redblack.c.o[0m
+[ 74%] [32mBuilding C object CMakeFiles/nlopt.dir/src/util/qsort_r.c.o[0m
+[ 76%] [32mBuilding C object CMakeFiles/nlopt.dir/src/util/rescale.c.o[0m
+[ 78%] [32mBuilding CXX object CMakeFiles/nlopt.dir/src/algs/stogo/global.cc.o[0m
+[ 80%] [32mBuilding CXX object CMakeFiles/nlopt.dir/src/algs/stogo/linalg.cc.o[0m
+[ 82%] [32mBuilding CXX object CMakeFiles/nlopt.dir/src/algs/stogo/local.cc.o[0m
+[ 84%] [32mBuilding CXX object CMakeFiles/nlopt.dir/src/algs/stogo/stogo.cc.o[0m
+[ 86%] [32mBuilding CXX object CMakeFiles/nlopt.dir/src/algs/stogo/tools.cc.o[0m
+[ 88%] [32mBuilding CXX object CMakeFiles/nlopt.dir/src/algs/ags/evolvent.cc.o[0m
+[ 90%] [32mBuilding CXX object CMakeFiles/nlopt.dir/src/algs/ags/solver.cc.o[0m
+[ 92%] [32mBuilding CXX object CMakeFiles/nlopt.dir/src/algs/ags/local_optimizer.cc.o[0m
+[ 94%] [32mBuilding CXX object CMakeFiles/nlopt.dir/src/algs/ags/ags.cc.o[0m
+[ 96%] [32m[1mLinking CXX static library libnlopt.a[0m
+[100%] Built target nlopt
+[  1%] Built target generate-cpp
+[  3%] Built target generate-fortran
+[35m[1mConsolidate compiler generated dependencies of target nlopt[0m
+[100%] Built target nlopt
+[36mInstall the project...[0m
+-- Install configuration: "Release"
+-- Installing: /private/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T/RtmpDVhKaK/R.INSTALL9fda6d8647f/nloptr/src/nlopt/lib/pkgconfig/nlopt.pc
+-- Installing: /private/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T/RtmpDVhKaK/R.INSTALL9fda6d8647f/nloptr/src/nlopt/include/nlopt.h
+-- Installing: /private/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T/RtmpDVhKaK/R.INSTALL9fda6d8647f/nloptr/src/nlopt/include/nlopt.hpp
+-- Installing: /private/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T/RtmpDVhKaK/R.INSTALL9fda6d8647f/nloptr/src/nlopt/include/nlopt.f
+-- Installing: /private/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T/RtmpDVhKaK/R.INSTALL9fda6d8647f/nloptr/src/nlopt/lib/libnlopt.a
+-- Installing: /private/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T/RtmpDVhKaK/R.INSTALL9fda6d8647f/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends.cmake
+-- Installing: /private/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T/RtmpDVhKaK/R.INSTALL9fda6d8647f/nloptr/src/nlopt/lib/cmake/nlopt/NLoptLibraryDepends-release.cmake
+-- Installing: /private/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T/RtmpDVhKaK/R.INSTALL9fda6d8647f/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfig.cmake
+-- Installing: /private/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T/RtmpDVhKaK/R.INSTALL9fda6d8647f/nloptr/src/nlopt/lib/cmake/nlopt/NLoptConfigVersion.cmake
+-- Installing: /private/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T/RtmpDVhKaK/R.INSTALL9fda6d8647f/nloptr/src/nlopt/share/man/man3/nlopt.3
+-- Installing: /private/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T/RtmpDVhKaK/R.INSTALL9fda6d8647f/nloptr/src/nlopt/share/man/man3/nlopt_minimize.3
+-- Installing: /private/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T/RtmpDVhKaK/R.INSTALL9fda6d8647f/nloptr/src/nlopt/share/man/man3/nlopt_minimize_constrained.3
+mv: rename nlopt/lib to nlopt/lib/lib: Invalid argument
+configure: creating ./config.status
+config.status: creating src/Makevars
+** libs
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG -I../inst/include  -I'/opt/homebrew/lib/R/4.2/site-library/testthat/include' -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fPIC  -g -O2  -c init_nloptr.c -o init_nloptr.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG -I../inst/include  -I'/opt/homebrew/lib/R/4.2/site-library/testthat/include' -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fPIC  -g -O2  -c nloptr.c -o nloptr.o
+clang++ -std=gnu++11 -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG -I../inst/include  -I'/opt/homebrew/lib/R/4.2/site-library/testthat/include' -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fPIC  -g -O2  -c test-C-API.cpp -o test-C-API.o
+clang++ -std=gnu++11 -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG -I../inst/include  -I'/opt/homebrew/lib/R/4.2/site-library/testthat/include' -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fPIC  -g -O2  -c test-runner.cpp -o test-runner.o
+clang++ -std=gnu++11 -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -L/opt/homebrew/opt/gettext/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/xz/lib -L/opt/homebrew/lib -o nloptr.so init_nloptr.o nloptr.o test-C-API.o test-runner.o -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -lRlapack -L/opt/homebrew/opt/openblas/lib -lopenblas -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12 -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc -L/opt/homebrew/opt/gcc/lib/gcc/current -lgfortran -lemutls_w -lquadmath nlopt/lib/libnlopt.a -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -lR -lintl -Wl,-framework -Wl,CoreFoundation
+ld: warning: directory not found for option '-L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12'
+ld: library not found for -lemutls_w
+clang: [0;1;31merror: [0m[1mlinker command failed with exit code 1 (use -v to see invocation)[0m
+make: *** [nloptr.so] Error 1
+ERROR: compilation failed for package ‘nloptr’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/nloptr’
+* installing *source* package ‘minqa’ ...
+** package ‘minqa’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c altmov.f -o altmov.o
+[01m[Kaltmov.f:42:72:[m[K
+
+   42 |    10 HCOL(K)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at [01;35m[K(1)[m[K
+[01m[Kaltmov.f:45:72:[m[K
+
+   45 |       DO 20 K=1,NPT
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 20 at [01;35m[K(1)[m[K
+[01m[Kaltmov.f:46:72:[m[K
+
+   46 |    20 HCOL(K)=HCOL(K)+TEMP*ZMAT(K,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 20 at [01;35m[K(1)[m[K
+[01m[Kaltmov.f:53:72:[m[K
+
+   53 |    30 GLAG(I)=BMAT(KNEW,I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 30 at [01;35m[K(1)[m[K
+[01m[Kaltmov.f:57:72:[m[K
+
+   57 |    40 TEMP=TEMP+XPT(K,J)*XOPT(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 40 at [01;35m[K(1)[m[K
+[01m[Kaltmov.f:59:72:[m[K
+
+   59 |       DO 50 I=1,N
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 50 at [01;35m[K(1)[m[K
+[01m[Kaltmov.f:60:72:[m[K
+
+   60 |    50 GLAG(I)=GLAG(I)+TEMP*XPT(K,I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 50 at [01;35m[K(1)[m[K
+[01m[Kaltmov.f:76:72:[m[K
+
+   76 |    60 DISTSQ=DISTSQ+TEMP*TEMP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 60 at [01;35m[K(1)[m[K
+[01m[Kaltmov.f:173:72:[m[K
+
+  173 |    90 XNEW(I)=DMAX1(SL(I),DMIN1(SU(I),TEMP))
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 90 at [01;35m[K(1)[m[K
+[01m[Kaltmov.f:238:72:[m[K
+
+  238 |   140 GW=GW+GLAG(I)*W(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 140 at [01;35m[K(1)[m[K
+[01m[Kaltmov.f:249:72:[m[K
+
+  249 |   150 TEMP=TEMP+XPT(K,J)*W(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 150 at [01;35m[K(1)[m[K
+[01m[Kaltmov.f:250:72:[m[K
+
+  250 |   160 CURV=CURV+HCOL(K)*TEMP*TEMP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 160 at [01;35m[K(1)[m[K
+[01m[Kaltmov.f:256:72:[m[K
+
+  256 |   170     XALT(I)=DMAX1(SL(I),DMIN1(SU(I),TEMP))
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 170 at [01;35m[K(1)[m[K
+[01m[Kaltmov.f:269:72:[m[K
+
+  269 |   180     W(N+I)=XALT(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 180 at [01;35m[K(1)[m[K
+[01m[Kaltmov.f:276:72:[m[K
+
+  276 |   190     XALT(I)=W(N+I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 190 at [01;35m[K(1)[m[K
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c bigden.f -o bigden.o
+[01m[Kbigden.f:45:72:[m[K
+
+   45 |    10 W(N+K)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:49:72:[m[K
+
+   49 |       DO 20 K=1,NPT
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 20 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:50:72:[m[K
+
+   50 |    20 W(N+K)=W(N+K)+TEMP*ZMAT(K,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 20 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:67:72:[m[K
+
+   67 |    30 XOPTSQ=XOPTSQ+XOPT(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 30 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:78:72:[m[K
+
+   78 |    40         SSTEMP=SSTEMP+DIFF*DIFF
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 40 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:88:72:[m[K
+
+   88 |    60     S(I)=XPT(KSAV,I)-XOPT(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 60 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:104:72:[m[K
+
+  104 |    80 XOPTS=XOPTS+XOPT(I)*S(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 80 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:116:72:[m[K
+
+  116 |    90 DEN(I)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 90 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:127:72:[m[K
+
+  127 |   100 TEMPC=TEMPC+XPT(K,I)*XOPT(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 100 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:132:72:[m[K
+
+  132 |   110 WVEC(K,5)=HALF*TEMPA*TEMPB
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 110 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:139:72:[m[K
+
+  139 |   120 WVEC(IP,5)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 120 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:147:72:[m[K
+
+  147 |   130 PROD(K,JC)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 130 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:151:72:[m[K
+
+  151 |   140 SUM=SUM+ZMAT(K,J)*WVEC(K,JC)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 140 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:153:72:[m[K
+
+  153 |       DO 150 K=1,NPT
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 150 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:154:72:[m[K
+
+  154 |   150 PROD(K,JC)=PROD(K,JC)+SUM*ZMAT(K,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 150 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:159:72:[m[K
+
+  159 |   160     SUM=SUM+BMAT(K,J)*WVEC(NPT+J,JC)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 160 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:160:72:[m[K
+
+  160 |   170     PROD(K,JC)=PROD(K,JC)+SUM
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 170 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:162:72:[m[K
+
+  162 |       DO 190 J=1,N
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 190 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:165:72:[m[K
+
+  165 |   180 SUM=SUM+BMAT(I,J)*WVEC(I,JC)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 180 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:166:72:[m[K
+
+  166 |   190 PROD(NPT+J,JC)=SUM
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 190 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:174:72:[m[K
+
+  174 |   200 SUM=SUM+PAR(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 200 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:193:72:[m[K
+
+  193 |   210 DEN(9)=DEN(9)-HALF*TEMPA
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 210 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:200:72:[m[K
+
+  200 |   220 SUM=SUM+PAR(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 220 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:234:72:[m[K
+
+  234 |   230 PAR(J+1)=PAR(2)*PAR(J-1)+PAR(3)*PAR(J-2)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 230 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:238:72:[m[K
+
+  238 |   240 SUM=SUM+DENEX(J)*PAR(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 240 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:264:72:[m[K
+
+  264 |   260 PAR(J+1)=PAR(2)*PAR(J-1)+PAR(3)*PAR(J-2)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 260 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:269:72:[m[K
+
+  269 |   270 DENMAX=DENMAX+DENEX(J)*PAR(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 270 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:272:72:[m[K
+
+  272 |       DO 280 J=1,5
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 280 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:273:72:[m[K
+
+  273 |   280 VLAG(K)=VLAG(K)+PROD(K,J)*PAR(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 280 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:283:72:[m[K
+
+  283 |   290 TEMPB=TEMPB+W(I)*W(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 290 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:294:72:[m[K
+
+  294 |   300 S(I)=TAU*BMAT(KNEW,I)+ALPHA*TEMP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 300 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:298:72:[m[K
+
+  298 |   310 SUM=SUM+XPT(K,J)*W(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 310 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:300:72:[m[K
+
+  300 |       DO 320 I=1,N
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 320 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:301:72:[m[K
+
+  301 |   320 S(I)=S(I)+TEMP*XPT(K,I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 320 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:306:72:[m[K
+
+  306 |   330 DS=DS+D(I)*S(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 330 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:314:72:[m[K
+
+  314 |       DO 350 J=1,5
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 350 at [01;35m[K(1)[m[K
+[01m[Kbigden.f:315:72:[m[K
+
+  315 |   350 W(K)=W(K)+WVEC(K,J)*PAR(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 350 at [01;35m[K(1)[m[K
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c biglag.f -o biglag.o
+[01m[Kbiglag.f:38:72:[m[K
+
+   38 |    10 HCOL(K)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at [01;35m[K(1)[m[K
+[01m[Kbiglag.f:42:72:[m[K
+
+   42 |       DO 20 K=1,NPT
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 20 at [01;35m[K(1)[m[K
+[01m[Kbiglag.f:43:72:[m[K
+
+   43 |    20 HCOL(K)=HCOL(K)+TEMP*ZMAT(K,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 20 at [01;35m[K(1)[m[K
+[01m[Kbiglag.f:54:72:[m[K
+
+   54 |    30 DD=DD+D(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 30 at [01;35m[K(1)[m[K
+[01m[Kbiglag.f:60:72:[m[K
+
+   60 |    40 SUM=SUM+XPT(K,J)*D(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 40 at [01;35m[K(1)[m[K
+[01m[Kbiglag.f:63:72:[m[K
+
+   63 |       DO 50 I=1,N
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 50 at [01;35m[K(1)[m[K
+[01m[Kbiglag.f:65:72:[m[K
+
+   65 |    50 GD(I)=GD(I)+SUM*XPT(K,I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 50 at [01;35m[K(1)[m[K
+[01m[Kbiglag.f:76:72:[m[K
+
+   76 |    60 DHD=DHD+D(I)*GD(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 60 at [01;35m[K(1)[m[K
+[01m[Kbiglag.f:86:72:[m[K
+
+   86 |    70 S(I)=GC(I)+TEMP*GD(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 70 at [01;35m[K(1)[m[K
+[01m[Kbiglag.f:99:72:[m[K
+
+   99 |    90 SS=SS+S(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 90 at [01;35m[K(1)[m[K
+[01m[Kbiglag.f:105:72:[m[K
+
+  105 |   100 W(I)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 100 at [01;35m[K(1)[m[K
+[01m[Kbiglag.f:113:72:[m[K
+
+  113 |   110 SUM=SUM+XPT(K,J)*S(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 110 at [01;35m[K(1)[m[K
+[01m[Kbiglag.f:115:72:[m[K
+
+  115 |       DO 120 I=1,N
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 120 at [01;35m[K(1)[m[K
+[01m[Kbiglag.f:116:72:[m[K
+
+  116 |   120 W(I)=W(I)+SUM*XPT(K,I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 120 at [01;35m[K(1)[m[K
+[01m[Kbiglag.f:127:72:[m[K
+
+  127 |   130 CF5=CF5+S(I)*GD(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 130 at [01;35m[K(1)[m[K
+[01m[Kbiglag.f:151:72:[m[K
+
+  151 |   140 TAUOLD=TAU
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 140 at [01;35m[K(1)[m[K
+[01m[Kbiglag.f:170:72:[m[K
+
+  170 |   150 S(I)=GC(I)+GD(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 150 at [01;35m[K(1)[m[K
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c bobyqa.f -o bobyqa.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c bobyqb.f -o bobyqb.o
+[01m[Kbobyqb.f:68:72:[m[K
+
+   68 |    10 XOPTSQ=XOPTSQ+XOPT(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:97:72:[m[K
+
+   97 |           DO 30 I=1,J
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 30 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:100:72:[m[K
+
+  100 |    30     GOPT(I)=GOPT(I)+HQ(IH)*XOPT(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 30 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:105:72:[m[K
+
+  105 |    40         TEMP=TEMP+XPT(K,J)*XOPT(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 40 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:107:72:[m[K
+
+  107 |               DO 50 I=1,N
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 50 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:108:72:[m[K
+
+  108 |    50         GOPT(I)=GOPT(I)+TEMP*XPT(K,I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 50 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:145:72:[m[K
+
+  145 |    70         CURV=CURV+PQ(K)*XPT(K,J)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 70 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:167:72:[m[K
+
+  167 |   100     SUM=SUM+XPT(K,I)*XOPT(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 100 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:170:72:[m[K
+
+  170 |           DO 110 I=1,N
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 110 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:174:72:[m[K
+
+  174 |           DO 110 J=1,I
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 110 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:175:72:[m[K
+
+  175 |   110     BMAT(IP,J)=BMAT(IP,J)+W(I)*VLAG(J)+VLAG(I)*W(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 110 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:185:72:[m[K
+
+  185 |   120     SUMW=SUMW+VLAG(K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 120 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:189:72:[m[K
+
+  189 |   130     SUM=SUM+VLAG(K)*XPT(K,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 130 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:191:72:[m[K
+
+  191 |           DO 140 K=1,NPT
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 140 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:192:72:[m[K
+
+  192 |   140     BMAT(K,J)=BMAT(K,J)+SUM*ZMAT(K,JJ)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 140 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:193:72:[m[K
+
+  193 |           DO 150 I=1,N
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 150 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:196:72:[m[K
+
+  196 |           DO 150 J=1,I
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 150 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:197:72:[m[K
+
+  197 |   150     BMAT(IP,J)=BMAT(IP,J)+TEMP*W(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 150 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:207:72:[m[K
+
+  207 |   160     XPT(K,J)=XPT(K,J)-XOPT(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 160 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:208:72:[m[K
+
+  208 |           DO 170 I=1,J
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 170 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:211:72:[m[K
+
+  211 |   170     BMAT(NPT+I,J)=BMAT(NPT+J,I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 170 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:217:72:[m[K
+
+  217 |   180     XOPT(I)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 180 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:246:72:[m[K
+
+  246 |   200     XOPTSQ=XOPTSQ+XOPT(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 200 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:278:72:[m[K
+
+  278 |   220 D(I)=XNEW(I)-XOPT(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 220 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:291:72:[m[K
+
+  291 |   240 SUM=SUM+BMAT(K,J)*D(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 240 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:294:72:[m[K
+
+  294 |   250 W(NPT+K)=SUMA
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 250 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:299:72:[m[K
+
+  299 |   260 SUM=SUM+ZMAT(K,JJ)*W(K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 260 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:301:72:[m[K
+
+  301 |       DO 270 K=1,NPT
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 270 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:302:72:[m[K
+
+  302 |   270 VLAG(K)=VLAG(K)+SUM*ZMAT(K,JJ)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 270 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:310:72:[m[K
+
+  310 |   280 SUM=SUM+W(K)*BMAT(K,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 280 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:314:72:[m[K
+
+  314 |   290 SUM=SUM+BMAT(JP,I)*D(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 290 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:317:72:[m[K
+
+  317 |   300 DX=DX+D(J)*XOPT(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 300 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:330:72:[m[K
+
+  330 |   310         D(I)=XNEW(I)-XOPT(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 310 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:361:72:[m[K
+
+  361 |   330     HDIAG=HDIAG+ZMAT(K,JJ)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 330 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:365:72:[m[K
+
+  365 |   340     DISTSQ=DISTSQ+(XPT(K,J)-XOPT(J))**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 340 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:428:72:[m[K
+
+  428 |       DO 410 I=1,J
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 410 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:432:72:[m[K
+
+  432 |   410 VQUAD=VQUAD+HQ(IH)*TEMP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 410 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:434:72:[m[K
+
+  434 |   420 VQUAD=VQUAD+HALF*PQ(K)*W(NPT+K)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 420 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:476:72:[m[K
+
+  476 |   440         HDIAG=HDIAG+ZMAT(K,JJ)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 440 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:480:72:[m[K
+
+  480 |   450         DISTSQ=DISTSQ+(XPT(K,J)-XNEW(J))**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 450 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:487:72:[m[K
+
+  487 |   460         BIGLSQ=DMAX1(BIGLSQ,TEMP*VLAG(K)**2)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 460 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:504:72:[m[K
+
+  504 |       DO 470 J=1,I
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 470 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:506:72:[m[K
+
+  506 |   470 HQ(IH)=HQ(IH)+TEMP*XPT(KNEW,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 470 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:509:72:[m[K
+
+  509 |       DO 480 K=1,NPT
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 480 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:510:72:[m[K
+
+  510 |   480 PQ(K)=PQ(K)+TEMP*ZMAT(K,JJ)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 480 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:518:72:[m[K
+
+  518 |   490 W(I)=BMAT(KNEW,I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 490 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:522:72:[m[K
+
+  522 |   500 SUMA=SUMA+ZMAT(KNEW,JJ)*ZMAT(K,JJ)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 500 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:525:72:[m[K
+
+  525 |   510 SUMB=SUMB+XPT(K,J)*XOPT(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 510 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:527:72:[m[K
+
+  527 |       DO 520 I=1,N
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 520 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:528:72:[m[K
+
+  528 |   520 W(I)=W(I)+TEMP*XPT(K,I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 520 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:530:72:[m[K
+
+  530 |   530 GOPT(I)=GOPT(I)+DIFF*W(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 530 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:541:72:[m[K
+
+  541 |           DO 540 I=1,J
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 540 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:544:72:[m[K
+
+  544 |   540     GOPT(I)=GOPT(I)+HQ(IH)*D(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 540 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:548:72:[m[K
+
+  548 |   550     TEMP=TEMP+XPT(K,J)*D(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 550 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:550:72:[m[K
+
+  550 |           DO 560 I=1,N
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 560 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:551:72:[m[K
+
+  551 |   560     GOPT(I)=GOPT(I)+TEMP*XPT(K,I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 560 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:561:72:[m[K
+
+  561 |   570     W(K)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 570 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:565:72:[m[K
+
+  565 |   580     SUM=SUM+ZMAT(K,J)*VLAG(K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 580 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:566:72:[m[K
+
+  566 |           DO 590 K=1,NPT
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 590 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:567:72:[m[K
+
+  567 |   590     W(K)=W(K)+SUM*ZMAT(K,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 590 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:571:72:[m[K
+
+  571 |   600     SUM=SUM+XPT(K,J)*XOPT(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 600 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:573:72:[m[K
+
+  573 |   610     W(K)=SUM*W(K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 610 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:579:72:[m[K
+
+  579 |   620     SUM=SUM+BMAT(K,I)*VLAG(K)+XPT(K,I)*W(K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 620 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:590:72:[m[K
+
+  590 |   630     VLAG(NPT+I)=SUM
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 630 at [01;35m[K(1)[m[K
+[01m[Kbobyqb.f:622:72:[m[K
+
+  622 |   660 SUM=SUM+(XPT(K,J)-XOPT(J))**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 660 at [01;35m[K(1)[m[K
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c lagmax.f -o lagmax.o
+[01m[Klagmax.f:36:72:[m[K
+
+   36 |    10 SUM=SUM+H(I,J)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at [01;35m[K(1)[m[K
+[01m[Klagmax.f:43:72:[m[K
+
+   43 |    30 V(J)=H(K,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 30 at [01;35m[K(1)[m[K
+[01m[Klagmax.f:56:72:[m[K
+
+   56 |    40 D(I)=D(I)+H(I,J)*V(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 40 at [01;35m[K(1)[m[K
+[01m[Klagmax.f:58:72:[m[K
+
+   58 |    50 DSQ=DSQ+D(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 50 at [01;35m[K(1)[m[K
+[01m[Klagmax.f:64:72:[m[K
+
+   64 |    60     WSQ=WSQ+D(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 60 at [01;35m[K(1)[m[K
+[01m[Klagmax.f:70:72:[m[K
+
+   70 |    70     TEMP=TEMP+H(I,J)*D(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 70 at [01;35m[K(1)[m[K
+[01m[Klagmax.f:72:72:[m[K
+
+   72 |    80     V(I)=RATIO*V(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 80 at [01;35m[K(1)[m[K
+[01m[Klagmax.f:78:72:[m[K
+
+   78 |    90     D(I)=VHW*V(I)+TEMP*D(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 90 at [01;35m[K(1)[m[K
+[01m[Klagmax.f:94:72:[m[K
+
+   94 |   100 SUM=SUM+H(I,J)*D(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 100 at [01;35m[K(1)[m[K
+[01m[Klagmax.f:95:72:[m[K
+
+   95 |   110 DHD=DHD+SUM*D(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 110 at [01;35m[K(1)[m[K
+[01m[Klagmax.f:102:72:[m[K
+
+  102 |   120 D(I)=SCALE*D(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 120 at [01;35m[K(1)[m[K
+[01m[Klagmax.f:122:72:[m[K
+
+  122 |   130 SUMV=SUMV+H(I,J)*V(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 130 at [01;35m[K(1)[m[K
+[01m[Klagmax.f:125:72:[m[K
+
+  125 |   140 VHV=VHV+SUMV*V(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 140 at [01;35m[K(1)[m[K
+[01m[Klagmax.f:147:72:[m[K
+
+  147 |   150 V(I)=TEMPC*V(I)-TEMPD*G(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 150 at [01;35m[K(1)[m[K
+[01m[Klagmax.f:168:72:[m[K
+
+  168 |   160 D(I)=TEMPD*D(I)+TEMPV*V(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 160 at [01;35m[K(1)[m[K
+clang++ -std=gnu++14 -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG  -I'/opt/homebrew/lib/R/4.2/site-library/Rcpp/include' -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fPIC  -g -O2  -c minqa.cpp -o minqa.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c newuoa.f -o newuoa.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c newuob.f -o newuob.o
+[01m[Knewuob.f:49:72:[m[K
+
+   49 |    10 XPT(K,J)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:50:72:[m[K
+
+   50 |       DO 20 I=1,NDIM
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 20 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:51:72:[m[K
+
+   51 |    20 BMAT(I,J)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 20 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:53:72:[m[K
+
+   53 |    30 HQ(IH)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 30 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:56:72:[m[K
+
+   56 |       DO 40 J=1,NPTM
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 40 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:57:72:[m[K
+
+   57 |    40 ZMAT(K,J)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 40 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:98:72:[m[K
+
+   98 |    60 X(J)=XPT(NF,J)+XBASE(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 60 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:159:72:[m[K
+
+  159 |    80 XOPTSQ=XOPTSQ+XOPT(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 80 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:170:72:[m[K
+
+  170 |   110 DSQ=DSQ+D(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 110 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:191:72:[m[K
+
+  191 |   130     SUM=SUM+XPT(K,I)*XOPT(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 130 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:195:72:[m[K
+
+  195 |           DO 140 I=1,N
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 140 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:201:72:[m[K
+
+  201 |           DO 140 J=1,I
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 140 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:202:72:[m[K
+
+  202 |   140     BMAT(IP,J)=BMAT(IP,J)+VLAG(I)*W(J)+W(I)*VLAG(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 140 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:210:72:[m[K
+
+  210 |   150     W(I)=W(NPT+I)*ZMAT(I,K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 150 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:214:72:[m[K
+
+  214 |   160     SUM=SUM+W(I)*XPT(I,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 160 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:217:72:[m[K
+
+  217 |           DO 170 I=1,NPT
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 170 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:218:72:[m[K
+
+  218 |   170     BMAT(I,J)=BMAT(I,J)+SUM*ZMAT(I,K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 170 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:219:72:[m[K
+
+  219 |           DO 180 I=1,N
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 180 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:223:72:[m[K
+
+  223 |           DO 180 J=1,I
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 180 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:224:72:[m[K
+
+  224 |   180     BMAT(IP,J)=BMAT(IP,J)+TEMP*VLAG(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 180 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:234:72:[m[K
+
+  234 |   190     XPT(K,J)=XPT(K,J)-HALF*XOPT(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 190 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:235:72:[m[K
+
+  235 |           DO 200 I=1,J
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 200 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:240:72:[m[K
+
+  240 |   200     BMAT(NPT+I,J)=BMAT(NPT+J,I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 200 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:243:72:[m[K
+
+  243 |   210     XOPT(J)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 210 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:266:72:[m[K
+
+  266 |   220 SUM=SUM+BMAT(K,J)*D(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 220 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:268:72:[m[K
+
+  268 |   230 VLAG(K)=SUM
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 230 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:273:72:[m[K
+
+  273 |   240 SUM=SUM+ZMAT(I,K)*W(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 240 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:280:72:[m[K
+
+  280 |       DO 250 I=1,NPT
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 250 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:281:72:[m[K
+
+  281 |   250 VLAG(I)=VLAG(I)+SUM*ZMAT(I,K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 250 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:287:72:[m[K
+
+  287 |   260 SUM=SUM+W(I)*BMAT(I,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 260 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:291:72:[m[K
+
+  291 |   270 SUM=SUM+BMAT(JP,K)*D(K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 270 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:294:72:[m[K
+
+  294 |   280 DX=DX+D(J)*XOPT(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 280 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:314:72:[m[K
+
+  314 |   300 X(I)=XBASE(I)+XNEW(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 300 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:343:72:[m[K
+
+  343 |       DO 340 I=1,J
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 340 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:347:72:[m[K
+
+  347 |   340 VQUAD=VQUAD+TEMP*HQ(IH)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 340 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:349:72:[m[K
+
+  349 |   350 VQUAD=VQUAD+PQ(K)*W(K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 350 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:366:72:[m[K
+
+  366 |   360     XOPTSQ=XOPTSQ+XOPT(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 360 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:405:72:[m[K
+
+  405 |   380 HDIAG=HDIAG+TEMP*ZMAT(K,J)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 380 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:409:72:[m[K
+
+  409 |   390 DISTSQ=DISTSQ+(XPT(K,J)-XOPT(J))**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 390 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:427:72:[m[K
+
+  427 |       DO 420 J=1,I
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 420 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:429:72:[m[K
+
+  429 |   420 HQ(IH)=HQ(IH)+TEMP*XPT(KNEW,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 420 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:438:72:[m[K
+
+  438 |       DO 440 K=1,NPT
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 440 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:439:72:[m[K
+
+  439 |   440 PQ(K)=PQ(K)+TEMP*ZMAT(K,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 440 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:444:72:[m[K
+
+  444 |   450 XPT(KNEW,I)=XNEW(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 450 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:455:72:[m[K
+
+  455 |   700         VLAG(K)=FVAL(K)-FVAL(KOPT)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 700 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:460:72:[m[K
+
+  460 |   710         SUM=SUM+BMAT(K,I)*VLAG(K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 710 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:462:72:[m[K
+
+  462 |   720         W(I)=SUM
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 720 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:471:72:[m[K
+
+  471 |   730             GQ(I)=W(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 730 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:473:72:[m[K
+
+  473 |   740             HQ(IH)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 740 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:477:72:[m[K
+
+  477 |   750             W(J)=W(J)+VLAG(K)*ZMAT(K,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 750 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:478:72:[m[K
+
+  478 |   760             IF (J .LT. IDZ) W(J)=-W(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 760 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:481:72:[m[K
+
+  481 |                   DO 770 J=1,NPTM
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 770 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:482:72:[m[K
+
+  482 |   770             PQ(K)=PQ(K)+ZMAT(K,J)*W(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 770 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:504:72:[m[K
+
+  504 |   470 SUM=SUM+(XPT(K,J)-XOPT(J))**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 470 at [01;35m[K(1)[m[K
+[01m[Knewuob.f:556:72:[m[K
+
+  556 |   540     X(I)=XBASE(I)+XOPT(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 540 at [01;35m[K(1)[m[K
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c prelim.f -o prelim.o
+[01m[Kprelim.f:39:72:[m[K
+
+   39 |    10 XPT(K,J)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at [01;35m[K(1)[m[K
+[01m[Kprelim.f:40:72:[m[K
+
+   40 |       DO 20 I=1,NDIM
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 20 at [01;35m[K(1)[m[K
+[01m[Kprelim.f:41:72:[m[K
+
+   41 |    20 BMAT(I,J)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 20 at [01;35m[K(1)[m[K
+[01m[Kprelim.f:43:72:[m[K
+
+   43 |    30 HQ(IH)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 30 at [01;35m[K(1)[m[K
+[01m[Kprelim.f:46:72:[m[K
+
+   46 |       DO 40 J=1,NPT-NP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 40 at [01;35m[K(1)[m[K
+[01m[Kprelim.f:47:72:[m[K
+
+   47 |    40 ZMAT(K,J)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 40 at [01;35m[K(1)[m[K
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c rescue.f -o rescue.o
+[01m[Krescue.f:66:72:[m[K
+
+   66 |    10 DISTSQ=DISTSQ+XPT(K,J)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at [01;35m[K(1)[m[K
+[01m[Krescue.f:70:72:[m[K
+
+   70 |       DO 20 J=1,NPTM
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 20 at [01;35m[K(1)[m[K
+[01m[Krescue.f:71:72:[m[K
+
+   71 |    20 ZMAT(K,J)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 20 at [01;35m[K(1)[m[K
+[01m[Krescue.f:80:72:[m[K
+
+   80 |    30 W(J)=W(J)+PQ(K)*XPT(K,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 30 at [01;35m[K(1)[m[K
+[01m[Krescue.f:81:72:[m[K
+
+   81 |       DO 40 I=1,J
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 40 at [01;35m[K(1)[m[K
+[01m[Krescue.f:83:72:[m[K
+
+   83 |    40 HQ(IH)=HQ(IH)+W(I)*XOPT(J)+W(J)*XOPT(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 40 at [01;35m[K(1)[m[K
+[01m[Krescue.f:103:72:[m[K
+
+  103 |       DO 50 I=1,NDIM
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 50 at [01;35m[K(1)[m[K
+[01m[Krescue.f:104:72:[m[K
+
+  104 |    50 BMAT(I,J)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 50 at [01;35m[K(1)[m[K
+[01m[Krescue.f:145:72:[m[K
+
+  145 |    70     ZMAT(K,K-NP)=TEMP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 70 at [01;35m[K(1)[m[K
+[01m[Krescue.f:157:72:[m[K
+
+  157 |    90 BMAT(KNEW,J)=TEMP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 90 at [01;35m[K(1)[m[K
+[01m[Krescue.f:161:72:[m[K
+
+  161 |   100 ZMAT(KNEW,J)=TEMP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 100 at [01;35m[K(1)[m[K
+[01m[Krescue.f:180:72:[m[K
+
+  180 |  110         W(NDIM+K)=DABS(W(NDIM+K))
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 110 at [01;35m[K(1)[m[K
+[01m[Krescue.f:201:72:[m[K
+
+  201 |   140 W(NPT+J)=XPT(KNEW,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 140 at [01;35m[K(1)[m[K
+[01m[Krescue.f:208:72:[m[K
+
+  208 |   150     SUM=SUM+W(NPT+J)*XPT(K,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 150 at [01;35m[K(1)[m[K
+[01m[Krescue.f:219:72:[m[K
+
+  219 |   160 W(K)=HALF*SUM*SUM
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 160 at [01;35m[K(1)[m[K
+[01m[Krescue.f:227:72:[m[K
+
+  227 |   170 SUM=SUM+BMAT(K,J)*W(NPT+J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 170 at [01;35m[K(1)[m[K
+[01m[Krescue.f:228:72:[m[K
+
+  228 |   180 VLAG(K)=SUM
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 180 at [01;35m[K(1)[m[K
+[01m[Krescue.f:233:72:[m[K
+
+  233 |   190 SUM=SUM+ZMAT(K,J)*W(K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 190 at [01;35m[K(1)[m[K
+[01m[Krescue.f:235:72:[m[K
+
+  235 |       DO 200 K=1,NPT
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 200 at [01;35m[K(1)[m[K
+[01m[Krescue.f:236:72:[m[K
+
+  236 |   200 VLAG(K)=VLAG(K)+SUM*ZMAT(K,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 200 at [01;35m[K(1)[m[K
+[01m[Krescue.f:242:72:[m[K
+
+  242 |   210 SUM=SUM+BMAT(K,J)*W(K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 210 at [01;35m[K(1)[m[K
+[01m[Krescue.f:246:72:[m[K
+
+  246 |   220 SUM=SUM+BMAT(IP,J)*W(IP)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 220 at [01;35m[K(1)[m[K
+[01m[Krescue.f:249:72:[m[K
+
+  249 |   230 DISTSQ=DISTSQ+XPT(KNEW,J)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 230 at [01;35m[K(1)[m[K
+[01m[Krescue.f:264:72:[m[K
+
+  264 |   240     HDIAG=HDIAG+ZMAT(K,J)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 240 at [01;35m[K(1)[m[K
+[01m[Krescue.f:271:72:[m[K
+
+  271 |   250 VLMXSQ=DMAX1(VLMXSQ,VLAG(K)**2)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 250 at [01;35m[K(1)[m[K
+[01m[Krescue.f:297:72:[m[K
+
+  297 |       DO 270 I=1,J
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 270 at [01;35m[K(1)[m[K
+[01m[Krescue.f:299:72:[m[K
+
+  299 |   270 HQ(IH)=HQ(IH)+TEMP*W(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 270 at [01;35m[K(1)[m[K
+[01m[Krescue.f:332:72:[m[K
+
+  332 |   280 VQUAD=VQUAD+HALF*PQ(K)*TEMP*TEMP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 280 at [01;35m[K(1)[m[K
+[01m[Krescue.f:359:72:[m[K
+
+  359 |   310 GOPT(I)=GOPT(I)+DIFF*BMAT(KPT,I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 310 at [01;35m[K(1)[m[K
+[01m[Krescue.f:363:72:[m[K
+
+  363 |   320 SUM=SUM+ZMAT(K,J)*ZMAT(KPT,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 320 at [01;35m[K(1)[m[K
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c trsapp.f -o trsapp.o
+[01m[Ktrsapp.f:33:72:[m[K
+
+   33 |    10 D(I)=XOPT(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at [01;35m[K(1)[m[K
+[01m[Ktrsapp.f:45:72:[m[K
+
+   45 |    30 DD=DD+D(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 30 at [01;35m[K(1)[m[K
+[01m[Ktrsapp.f:61:72:[m[K
+
+   61 |    60 DHD=DHD+D(J)*HD(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 60 at [01;35m[K(1)[m[K
+[01m[Ktrsapp.f:82:72:[m[K
+
+   82 |    70 GG=GG+(G(I)+HS(I))**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 70 at [01;35m[K(1)[m[K
+[01m[Ktrsapp.f:98:72:[m[K
+
+   98 |    80     SS=SS+STEP(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 80 at [01;35m[K(1)[m[K
+[01m[Ktrsapp.f:112:72:[m[K
+
+  112 |   100 SHS=SHS+STEP(I)*HS(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 100 at [01;35m[K(1)[m[K
+[01m[Ktrsapp.f:125:72:[m[K
+
+  125 |   110 D(I)=TEMPA*(G(I)+HS(I))-TEMPB*STEP(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 110 at [01;35m[K(1)[m[K
+[01m[Ktrsapp.f:133:72:[m[K
+
+  133 |   130 DHS=DHS+HD(I)*STEP(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 130 at [01;35m[K(1)[m[K
+[01m[Ktrsapp.f:156:72:[m[K
+
+  156 |   140 QSAV=QNEW
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 140 at [01;35m[K(1)[m[K
+[01m[Ktrsapp.f:176:72:[m[K
+
+  176 |   150 GG=GG+(G(I)+HS(I))**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 150 at [01;35m[K(1)[m[K
+[01m[Ktrsapp.f:188:72:[m[K
+
+  188 |   180 HD(I)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 180 at [01;35m[K(1)[m[K
+[01m[Ktrsapp.f:192:72:[m[K
+
+  192 |   190 TEMP=TEMP+XPT(K,J)*D(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 190 at [01;35m[K(1)[m[K
+[01m[Ktrsapp.f:194:72:[m[K
+
+  194 |       DO 200 I=1,N
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 200 at [01;35m[K(1)[m[K
+[01m[Ktrsapp.f:195:72:[m[K
+
+  195 |   200 HD(I)=HD(I)+TEMP*XPT(K,I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 200 at [01;35m[K(1)[m[K
+[01m[Ktrsapp.f:198:72:[m[K
+
+  198 |       DO 210 I=1,J
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 210 at [01;35m[K(1)[m[K
+[01m[Ktrsapp.f:201:72:[m[K
+
+  201 |   210 HD(I)=HD(I)+HQ(IH)*D(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 210 at [01;35m[K(1)[m[K
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c trsbox.f -o trsbox.o
+[01m[Ktrsbox.f:71:72:[m[K
+
+   71 |    10 GNEW(I)=GOPT(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at [01;35m[K(1)[m[K
+[01m[Ktrsbox.f:92:72:[m[K
+
+   92 |    40 STEPSQ=STEPSQ+S(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 40 at [01;35m[K(1)[m[K
+[01m[Ktrsbox.f:163:72:[m[K
+
+  163 |    80     D(I)=D(I)+STPLEN*S(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 80 at [01;35m[K(1)[m[K
+[01m[Ktrsbox.f:304:72:[m[K
+
+  304 |   170 REDSAV=REDNEW
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 170 at [01;35m[K(1)[m[K
+[01m[Ktrsbox.f:333:72:[m[K
+
+  333 |   180 HRED(I)=CTH*HRED(I)+STH*HS(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 180 at [01;35m[K(1)[m[K
+[01m[Ktrsbox.f:351:72:[m[K
+
+  351 |   200 DSQ=DSQ+D(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 200 at [01;35m[K(1)[m[K
+[01m[Ktrsbox.f:362:72:[m[K
+
+  362 |       DO 220 I=1,J
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 220 at [01;35m[K(1)[m[K
+[01m[Ktrsbox.f:365:72:[m[K
+
+  365 |   220 HS(I)=HS(I)+HQ(IH)*S(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 220 at [01;35m[K(1)[m[K
+[01m[Ktrsbox.f:370:72:[m[K
+
+  370 |   230     TEMP=TEMP+XPT(K,J)*S(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 230 at [01;35m[K(1)[m[K
+[01m[Ktrsbox.f:373:72:[m[K
+
+  373 |   240     HS(I)=HS(I)+TEMP*XPT(K,I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 240 at [01;35m[K(1)[m[K
+[01m[Ktrsbox.f:379:72:[m[K
+
+  379 |   260 HRED(I)=HS(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 260 at [01;35m[K(1)[m[K
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c trstep.f -o trstep.o
+[01m[Ktrstep.f:41:72:[m[K
+
+   41 |       DO 10 J=1,I
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 10 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:42:72:[m[K
+
+   42 |    10 H(I,J)=H(J,I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:55:72:[m[K
+
+   55 |    20     SUM=SUM+H(I,K)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 20 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:68:72:[m[K
+
+   68 |    30     Z(I)=TD(I)*W(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 30 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:74:72:[m[K
+
+   74 |    40     Z(J)=Z(J)+H(I,J)*W(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 40 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:75:72:[m[K
+
+   75 |    50     WZ=WZ+W(J)*Z(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 50 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:82:72:[m[K
+
+   82 |    60         H(I,J)=H(I,J)-W(I)*Z(J)-W(J)*(Z(I)-WZ*W(I))
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 60 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:93:72:[m[K
+
+   93 |    90 GSQ=GSQ+G(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 90 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:99:72:[m[K
+
+   99 |   100 SUM=SUM+GG(I)*H(I,K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 100 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:100:72:[m[K
+
+  100 |       DO 110 I=KP,N
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 110 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:101:72:[m[K
+
+  101 |   110 GG(I)=GG(I)-SUM*H(I,K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 110 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:112:72:[m[K
+
+  112 |   120 TDMIN=DMIN1(TDMIN,TD(I))
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 120 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:117:72:[m[K
+
+  117 |   130     D(I)=-SCALE*GG(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 130 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:187:72:[m[K
+
+  187 |   180     D(I)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 180 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:200:72:[m[K
+
+  200 |   200     DTG=DTG+D(I)*GG(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 200 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:203:72:[m[K
+
+  203 |   210     D(I)=SCALE*D(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 210 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:222:72:[m[K
+
+  222 |   240 W(I)=(-GG(I)-TN(I-1)*W(I-1))/PIV(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 240 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:225:72:[m[K
+
+  225 |   250 D(I)=W(I)-TN(I)*D(I+1)/PIV(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 250 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:233:72:[m[K
+
+  233 |   260 WSQ=WSQ+PIV(I)*W(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 260 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:244:72:[m[K
+
+  244 |   270     D(I)=SCALE*D(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 270 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:276:72:[m[K
+
+  276 |   280     W(I)=(DSIGN(ONE,TEMP)+TEMP)/PIV(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 280 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:279:72:[m[K
+
+  279 |   290     Z(I)=W(I)-TN(I)*Z(I+1)/PIV(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 290 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:286:72:[m[K
+
+  286 |   300     DTZ=DTZ+D(I)*Z(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 300 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:296:72:[m[K
+
+  296 |   310         D(I)=D(I)+GAM*Z(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 310 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:327:72:[m[K
+
+  327 |   330 SHFMAX=DMIN1(SHFMAX,PIVOT)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 330 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:371:72:[m[K
+
+  371 |   380 SUM=SUM+D(I)*H(I,K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 380 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:372:72:[m[K
+
+  372 |       DO 390 I=KP,N
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 390 at [01;35m[K(1)[m[K
+[01m[Ktrstep.f:373:72:[m[K
+
+  373 |   390 D(I)=D(I)-SUM*H(I,K)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 390 at [01;35m[K(1)[m[K
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c uobyqa.f -o uobyqa.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c uobyqb.f -o uobyqb.o
+[01m[Kuobyqb.f:49:72:[m[K
+
+   49 |       DO 10 K=1,NPT
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 10 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:50:72:[m[K
+
+   50 |    10 XPT(K,I)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:52:72:[m[K
+
+   52 |       DO 20 J=1,NPTM
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 20 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:53:72:[m[K
+
+   53 |    20 PL(K,J)=ZERO
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 20 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:61:72:[m[K
+
+   61 |    40 X(I)=XBASE(I)+XPT(NF+1,I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 40 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:173:72:[m[K
+
+  173 |       DO 80 I=1,J
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 80 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:177:72:[m[K
+
+  177 |    80 H(I,J)=PQ(IH)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 80 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:187:72:[m[K
+
+  187 |    90 TEMP=TEMP+D(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 90 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:201:72:[m[K
+
+  201 |  110     X(I)=XBASE(I)+XNEW(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 110 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:230:72:[m[K
+
+  230 |       DO 150 I=1,J
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 150 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:234:72:[m[K
+
+  234 |   150 VQUAD=VQUAD+W(IH)*PQ(IH)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 150 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:238:72:[m[K
+
+  238 |   160 TEMP=TEMP+W(J)*PL(K,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 160 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:239:72:[m[K
+
+  239 |   170 VLAG(K)=TEMP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 170 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:250:72:[m[K
+
+  250 |   180 TEMP=TEMP+(XPT(K,I)-XNEW(I))**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 180 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:252:72:[m[K
+
+  252 |   190 SUM=SUM+DABS(TEMP*TEMP*TEMP*VLAG(K))
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 190 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:262:72:[m[K
+
+  262 |   200     XOPT(I)=XNEW(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 200 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:298:72:[m[K
+
+  298 |   220 SUM=SUM+(XPT(K,I)-XOPT(I))**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 220 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:313:72:[m[K
+
+  313 |   250 XPT(KNEW,I)=XNEW(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 250 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:317:72:[m[K
+
+  317 |   260 PQ(J)=PQ(J)+DIFF*PL(KNEW,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 260 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:322:72:[m[K
+
+  322 |   270     PL(K,J)=PL(K,J)-TEMP*PL(KNEW,J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 270 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:343:72:[m[K
+
+  343 |       DO 300 I=1,N
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 300 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:344:72:[m[K
+
+  344 |   300 W(K)=W(K)+(XPT(K,I)-XOPT(I))**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 300 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:371:72:[m[K
+
+  371 |   330     H(I,J)=TEMP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 330 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:372:72:[m[K
+
+  372 |   340     SUMH=SUMH+HALF*TEMP*TEMP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 340 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:382:72:[m[K
+
+  382 |   350         SUMG=SUMG+G(I)**2
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 350 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:409:72:[m[K
+
+  409 |   360     XPT(K,J)=XPT(K,J)-XOPT(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 360 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:410:72:[m[K
+
+  410 |           DO 380 I=1,J
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 380 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:416:72:[m[K
+
+  416 |   370         PL(K,J)=PL(K,J)+PL(K,IH)*XOPT(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 370 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:418:72:[m[K
+
+  418 |           DO 380 K=1,NPT
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 380 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:419:72:[m[K
+
+  419 |   380     PL(K,I)=PL(K,I)+PL(K,IH)*XOPT(J)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 380 at [01;35m[K(1)[m[K
+[01m[Kuobyqb.f:453:72:[m[K
+
+  453 |   430     X(I)=XBASE(I)+XOPT(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 430 at [01;35m[K(1)[m[K
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c update.f -o update.o
+[01m[Kupdate.f:30:72:[m[K
+
+   30 |    10     ZMAT(I,JL)=TEMP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at [01;35m[K(1)[m[K
+[01m[Kupdate.f:61:72:[m[K
+
+   61 |    40     ZMAT(I,1)=TEMPA*ZMAT(I,1)-TEMPB*VLAG(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 40 at [01;35m[K(1)[m[K
+[01m[Kupdate.f:79:72:[m[K
+
+   79 |    50     ZMAT(I,JB)=SCALB*(ZMAT(I,JB)-TEMPA*W(I)-TEMPB*VLAG(I))
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 50 at [01;35m[K(1)[m[K
+[01m[Kupdate.f:94:72:[m[K
+
+   94 |    60     ZMAT(I,IDZ)=TEMP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 60 at [01;35m[K(1)[m[K
+[01m[Kupdate.f:104:72:[m[K
+
+  104 |       DO 70 I=1,JP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 70 at [01;35m[K(1)[m[K
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c updatebobyqa.f -o updatebobyqa.o
+[01m[Kupdatebobyqa.f:22:72:[m[K
+
+   22 |       DO 10 J=1,NPTM
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 10 at [01;35m[K(1)[m[K
+[01m[Kupdatebobyqa.f:23:72:[m[K
+
+   23 |    10 ZTEST=DMAX1(ZTEST,DABS(ZMAT(K,J)))
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 10 at [01;35m[K(1)[m[K
+[01m[Kupdatebobyqa.f:37:72:[m[K
+
+   37 |    20     ZMAT(I,1)=TEMP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 20 at [01;35m[K(1)[m[K
+[01m[Kupdatebobyqa.f:58:72:[m[K
+
+   58 |    50 ZMAT(I,1)=TEMPA*ZMAT(I,1)-TEMPB*VLAG(I)
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: DO termination statement which is not END DO or CONTINUE with label 50 at [01;35m[K(1)[m[K
+[01m[Kupdatebobyqa.f:67:72:[m[K
+
+   67 |       DO 60 I=1,JP
+      |                                                                        [01;35m[K1[m[K
+[01;35m[KWarning:[m[K Fortran 2018 deleted feature: Shared DO termination label 60 at [01;35m[K(1)[m[K
+clang++ -std=gnu++14 -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -L/opt/homebrew/opt/gettext/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/xz/lib -L/opt/homebrew/lib -o minqa.so altmov.o bigden.o biglag.o bobyqa.o bobyqb.o lagmax.o minqa.o newuoa.o newuob.o prelim.o rescue.o trsapp.o trsbox.o trstep.o uobyqa.o uobyqb.o update.o updatebobyqa.o -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12 -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc -L/opt/homebrew/opt/gcc/lib/gcc/current -lgfortran -lemutls_w -lquadmath -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -lR -lintl -Wl,-framework -Wl,CoreFoundation
+ld: warning: directory not found for option '-L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12'
+ld: library not found for -lemutls_w
+clang: [0;1;31merror: [0m[1mlinker command failed with exit code 1 (use -v to see invocation)[0m
+make: *** [minqa.so] Error 1
+ERROR: compilation failed for package ‘minqa’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/minqa’
+* installing *source* package ‘RcppEigen’ ...
+** package ‘RcppEigen’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+clang++ -std=gnu++14 -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG  -I'/opt/homebrew/lib/R/4.2/site-library/Rcpp/include' -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include -fPIC  -g -O2  -c RcppEigen.cpp -o RcppEigen.o
+In file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:1:
+In file included from ../inst/include/Eigen/Core:540:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:2:
+In file included from ../inst/include/Eigen/LU:47:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:3:
+In file included from ../inst/include/Eigen/Cholesky:12:
+In file included from ../inst/include/Eigen/Jacobi:29:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:3:
+In file included from ../inst/include/Eigen/Cholesky:43:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:4:
+In file included from ../inst/include/Eigen/QR:15:
+In file included from ../inst/include/Eigen/Householder:27:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:4:
+In file included from ../inst/include/Eigen/QR:48:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:5:
+In file included from ../inst/include/Eigen/SVD:48:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:6:
+In file included from ../inst/include/Eigen/Geometry:58:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:7:
+In file included from ../inst/include/Eigen/Eigenvalues:58:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:31:
+In file included from ../inst/include/Eigen/Sparse:26:
+In file included from ../inst/include/Eigen/SparseCore:66:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:31:
+In file included from ../inst/include/Eigen/Sparse:27:
+In file included from ../inst/include/Eigen/OrderingMethods:71:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:31:
+In file included from ../inst/include/Eigen/Sparse:29:
+In file included from ../inst/include/Eigen/SparseCholesky:43:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:31:
+In file included from ../inst/include/Eigen/Sparse:32:
+In file included from ../inst/include/Eigen/SparseQR:34:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:31:
+In file included from ../inst/include/Eigen/Sparse:33:
+In file included from ../inst/include/Eigen/IterativeLinearSolvers:46:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:32:
+In file included from ../inst/include/Eigen/CholmodSupport:45:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:35:
+In file included from ../inst/include/unsupported/Eigen/KroneckerProduct:34:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:39:
+In file included from ../inst/include/unsupported/Eigen/Polynomials:135:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppEigen.cpp:22:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:40:
+In file included from ../inst/include/unsupported/Eigen/SparseExtra:51:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0m18 warnings generated.
+clang++ -std=gnu++14 -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG  -I'/opt/homebrew/lib/R/4.2/site-library/Rcpp/include' -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include -fPIC  -g -O2  -c RcppExports.cpp -o RcppExports.o
+In file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:1:
+In file included from ../inst/include/Eigen/Core:540:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:2:
+In file included from ../inst/include/Eigen/LU:47:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:3:
+In file included from ../inst/include/Eigen/Cholesky:12:
+In file included from ../inst/include/Eigen/Jacobi:29:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:3:
+In file included from ../inst/include/Eigen/Cholesky:43:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:4:
+In file included from ../inst/include/Eigen/QR:15:
+In file included from ../inst/include/Eigen/Householder:27:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:4:
+In file included from ../inst/include/Eigen/QR:48:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:5:
+In file included from ../inst/include/Eigen/SVD:48:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:6:
+In file included from ../inst/include/Eigen/Geometry:58:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:7:
+In file included from ../inst/include/Eigen/Eigenvalues:58:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:31:
+In file included from ../inst/include/Eigen/Sparse:26:
+In file included from ../inst/include/Eigen/SparseCore:66:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:31:
+In file included from ../inst/include/Eigen/Sparse:27:
+In file included from ../inst/include/Eigen/OrderingMethods:71:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:31:
+In file included from ../inst/include/Eigen/Sparse:29:
+In file included from ../inst/include/Eigen/SparseCholesky:43:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:31:
+In file included from ../inst/include/Eigen/Sparse:32:
+In file included from ../inst/include/Eigen/SparseQR:34:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:31:
+In file included from ../inst/include/Eigen/Sparse:33:
+In file included from ../inst/include/Eigen/IterativeLinearSolvers:46:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:32:
+In file included from ../inst/include/Eigen/CholmodSupport:45:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:35:
+In file included from ../inst/include/unsupported/Eigen/KroneckerProduct:34:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:39:
+In file included from ../inst/include/unsupported/Eigen/Polynomials:135:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from RcppExports.cpp:4:
+In file included from ./../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:40:
+In file included from ../inst/include/unsupported/Eigen/SparseExtra:51:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0m18 warnings generated.
+clang++ -std=gnu++14 -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG  -I'/opt/homebrew/lib/R/4.2/site-library/Rcpp/include' -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include  -I../inst/include -fPIC  -g -O2  -c fastLm.cpp -o fastLm.o
+In file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:1:
+In file included from ../inst/include/Eigen/Core:540:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:2:
+In file included from ../inst/include/Eigen/LU:47:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:3:
+In file included from ../inst/include/Eigen/Cholesky:12:
+In file included from ../inst/include/Eigen/Jacobi:29:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:3:
+In file included from ../inst/include/Eigen/Cholesky:43:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:4:
+In file included from ../inst/include/Eigen/QR:15:
+In file included from ../inst/include/Eigen/Householder:27:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:4:
+In file included from ../inst/include/Eigen/QR:48:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:5:
+In file included from ../inst/include/Eigen/SVD:48:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:6:
+In file included from ../inst/include/Eigen/Geometry:58:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:30:
+In file included from ../inst/include/Eigen/Dense:7:
+In file included from ../inst/include/Eigen/Eigenvalues:58:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:31:
+In file included from ../inst/include/Eigen/Sparse:26:
+In file included from ../inst/include/Eigen/SparseCore:66:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:31:
+In file included from ../inst/include/Eigen/Sparse:27:
+In file included from ../inst/include/Eigen/OrderingMethods:71:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:31:
+In file included from ../inst/include/Eigen/Sparse:29:
+In file included from ../inst/include/Eigen/SparseCholesky:43:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:31:
+In file included from ../inst/include/Eigen/Sparse:32:
+In file included from ../inst/include/Eigen/SparseQR:34:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:31:
+In file included from ../inst/include/Eigen/Sparse:33:
+In file included from ../inst/include/Eigen/IterativeLinearSolvers:46:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:32:
+In file included from ../inst/include/Eigen/CholmodSupport:45:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:35:
+In file included from ../inst/include/unsupported/Eigen/KroneckerProduct:34:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:39:
+In file included from ../inst/include/unsupported/Eigen/Polynomials:135:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0mIn file included from fastLm.cpp:23:
+In file included from ./fastLm.h:25:
+In file included from ../inst/include/RcppEigen.h:25:
+In file included from ../inst/include/RcppEigenForward.h:40:
+In file included from ../inst/include/unsupported/Eigen/SparseExtra:51:
+[1m../inst/include/Eigen/src/Core/util/ReenableStupidWarnings.h:14:30: [0m[0;1;35mwarning: [0m[1mpragma diagnostic pop could not pop, no matching push
+      [-Wunknown-pragmas][0m
+    #pragma clang diagnostic pop
+[0;1;32m                             ^
+[0m18 warnings generated.
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG  -I'/opt/homebrew/lib/R/4.2/site-library/Rcpp/include' -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fPIC  -g -O2  -c init.c -o init.o
+clang++ -std=gnu++14 -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -L/opt/homebrew/opt/gettext/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/xz/lib -L/opt/homebrew/lib -o RcppEigen.so RcppEigen.o RcppExports.o fastLm.o init.o -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -lRlapack -L/opt/homebrew/opt/openblas/lib -lopenblas -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12 -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc -L/opt/homebrew/opt/gcc/lib/gcc/current -lgfortran -lemutls_w -lquadmath -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -lR -lintl -Wl,-framework -Wl,CoreFoundation
+ld: warning: directory not found for option '-L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12'
+ld: library not found for -lemutls_w
+clang: [0;1;31merror: [0m[1mlinker command failed with exit code 1 (use -v to see invocation)[0m
+make: *** [RcppEigen.so] Error 1
+ERROR: compilation failed for package ‘RcppEigen’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/RcppEigen’
+* installing *source* package ‘mvtnorm’ ...
+** package ‘mvtnorm’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fPIC  -g -O2  -c C_FORTRAN_interface.c -o C_FORTRAN_interface.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fPIC  -g -O2  -c miwa.c -o miwa.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c mvt.f -o mvt.o
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fPIC  -g -O2  -c mvtnorm-init.c -o mvtnorm-init.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c tvpack.f -o tvpack.o
+clang -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -L/opt/homebrew/opt/gettext/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/xz/lib -L/opt/homebrew/lib -o mvtnorm.so C_FORTRAN_interface.o miwa.o mvt.o mvtnorm-init.o tvpack.o -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12 -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc -L/opt/homebrew/opt/gcc/lib/gcc/current -lgfortran -lemutls_w -lquadmath -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -lR -lintl -Wl,-framework -Wl,CoreFoundation
+ld: warning: directory not found for option '-L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12'
+ld: library not found for -lemutls_w
+clang: [0;1;31merror: [0m[1mlinker command failed with exit code 1 (use -v to see invocation)[0m
+make: *** [mvtnorm.so] Error 1
+ERROR: compilation failed for package ‘mvtnorm’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/mvtnorm’
+* installing *source* package ‘lmtest’ ...
+** package ‘lmtest’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs
+clang -I"/opt/homebrew/Cellar/r/4.2.3/lib/R/include" -DNDEBUG   -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fPIC  -g -O2  -c init.c -o init.o
+/opt/homebrew/opt/gcc/bin/gfortran -fno-optimize-sibling-calls  -fPIC  -g -O2  -c pan.f -o pan.o
+clang -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -L/opt/homebrew/opt/gettext/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/xz/lib -L/opt/homebrew/lib -o lmtest.so init.o pan.o -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12 -L/opt/homebrew/opt/gcc/lib/gcc/current/gcc -L/opt/homebrew/opt/gcc/lib/gcc/current -lgfortran -lemutls_w -lquadmath -L/opt/homebrew/Cellar/r/4.2.3/lib/R/lib -lR -lintl -Wl,-framework -Wl,CoreFoundation
+ld: warning: directory not found for option '-L/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin22/12'
+ld: library not found for -lemutls_w
+clang: [0;1;31merror: [0m[1mlinker command failed with exit code 1 (use -v to see invocation)[0m
+make: *** [lmtest.so] Error 1
+ERROR: compilation failed for package ‘lmtest’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/lmtest’
+ERROR: dependency ‘float’ is not available for package ‘MatrixExtra’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/MatrixExtra’
+ERROR: dependencies ‘minqa’, ‘nloptr’, ‘RcppEigen’ are not available for package ‘lme4’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/lme4’
+ERROR: dependency ‘SparseM’ is not available for package ‘quantreg’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/quantreg’
+ERROR: dependency ‘RcppEigen’ is not available for package ‘glmnet’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/glmnet’
+ERROR: dependencies ‘lmtest’, ‘RcppEigen’ are not available for package ‘grf’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/grf’
+ERROR: dependencies ‘MatrixExtra’, ‘float’, ‘RcppArmadillo’ are not available for package ‘rsparse’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/rsparse’
+ERROR: dependency ‘lme4’ is not available for package ‘pbkrtest’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/pbkrtest’
+ERROR: dependency ‘rsparse’ is not available for package ‘text2vec’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/text2vec’
+ERROR: dependencies ‘pbkrtest’, ‘quantreg’, ‘lme4’ are not available for package ‘car’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/car’
+ERROR: dependencies ‘mvtnorm’, ‘car’, ‘glmnet’, ‘text2vec’ are not available for package ‘regtools’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/regtools’
+ERROR: dependency ‘regtools’ is not available for package ‘partools’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/partools’
+[1m
+[0m[1m[0m[1mThe downloaded source packages are in
+	‘/private/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T/RtmpTqrGwc/downloaded_packages’[0m[1m[0m[1m
+[0m[36m──[39m [36mR CMD build[39m [36m───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+     checking for file ‘/private/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T/RtmpTqrGwc/remotes97f2e30fde5/matloff-qeML-3885abf/DESCRIPTION’ ...  [32m✔[39m  [38;5;247mchecking for file ‘/private/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T/RtmpTqrGwc/remotes97f2e30fde5/matloff-qeML-3885abf/DESCRIPTION’[39m[36m[39m
+  [38;5;247m─[39m[38;5;247m  [39m[38;5;247mpreparing ‘qeML’:[39m[36m[39m
+     checking DESCRIPTION meta-information ...  [32m✔[39m  [38;5;247mchecking DESCRIPTION meta-information[39m[36m[39m
+  [38;5;247m─[39m[38;5;247m  [39m[38;5;247mchecking for LF line-endings in source and make files and shell scripts[39m[36m[39m
+  [38;5;247m─[39m[38;5;247m  [39m[38;5;247mchecking for empty or unneeded directories[39m[36m[39m
+  [38;5;247m─[39m[38;5;247m  [39m[38;5;247mlooking to see if a ‘data/datalist’ file should be added[39m[36m[39m
+  [38;5;247m─[39m[38;5;247m  [39m[38;5;247mbuilding ‘qeML_1.1.tar.gz’[39m[36m[39m
+     
+[1mInstalling package into ‘/opt/homebrew/lib/R/4.2/site-library’
+(as ‘lib’ is unspecified)
+[0mERROR: dependencies ‘regtools’, ‘partools’, ‘grf’ are not available for package ‘qeML’
+* removing ‘/opt/homebrew/lib/R/4.2/site-library/qeML’
+[1mThere were 20 warnings (use warnings() to see them)[0m[1m
+[0m[?25h[?2004h> warnings()
+[?2004lWarning messages:
+1: In i.p(...) : installation of package ‘RcppArmadillo’ had non-zero exit status
+2: In i.p(...) : installation of package ‘float’ had non-zero exit status
+3: In i.p(...) : installation of package ‘SparseM’ had non-zero exit status
+4: In i.p(...) : installation of package ‘nloptr’ had non-zero exit status
+5: In i.p(...) : installation of package ‘minqa’ had non-zero exit status
+6: In i.p(...) : installation of package ‘RcppEigen’ had non-zero exit status
+7: In i.p(...) : installation of package ‘mvtnorm’ had non-zero exit status
+8: In i.p(...) : installation of package ‘lmtest’ had non-zero exit status
+9: In i.p(...) : installation of package ‘MatrixExtra’ had non-zero exit status
+10: In i.p(...) : installation of package ‘lme4’ had non-zero exit status
+11: In i.p(...) : installation of package ‘quantreg’ had non-zero exit status
+12: In i.p(...) : installation of package ‘glmnet’ had non-zero exit status
+13: In i.p(...) : installation of package ‘grf’ had non-zero exit status
+14: In i.p(...) : installation of package ‘rsparse’ had non-zero exit status
+15: In i.p(...) : installation of package ‘pbkrtest’ had non-zero exit status
+16: In i.p(...) : installation of package ‘text2vec’ had non-zero exit status
+17: In i.p(...) : installation of package ‘car’ had non-zero exit status
+18: In i.p(...) : installation of package ‘regtools’ had non-zero exit status
+19: In i.p(...) : installation of package ‘partools’ had non-zero exit status
+20: In i.p(...) :
+  installation of package ‘/var/folders/20/9kknwl6j527gnmk9jvpxk87r0000gn/T//RtmpTqrGwc/file97f24f0c6c3/qeML_1.1.tar.gz’ had non-zero exit status
+[?25h[?2004h> quit()
+[?2004l[?2004hSave workspace image? [y/n/c]: n
+[?2004l[?25h[1m[7m%[27m[1m[0m                                                                                                                                                                      [0m[27m[24m[J(base) arjashok@campus-043-109 ECS 189G % [K[?2004hbbrew install gcc

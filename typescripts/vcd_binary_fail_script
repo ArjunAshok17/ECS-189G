@@ -1,0 +1,28 @@
+Script started on Tue Apr 11 19:44:03 2023
+[1m[7m%[27m[1m[0m                                                                                                                                                                      [0m[27m[24m[Jarjashok@campus-027-040 ECS 189G % [K[?2004hR[?2004l
+
+R version 4.2.3 (2023-03-15) -- "Shortstop Beagle"
+Copyright (C) 2023 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin22.3.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[?2004h> install.packages("vcd", type = "binary")
+[?2004l[1mError in install.packages("vcd", type = "binary") : 
+  type 'binary' is not supported on this platform
+[0m[?2004h> quit("no")
+[?2004l[1m[7m%[27m[1m[0m                                                                                                                                                                      [0m[27m[24m[Jarjashok@campus-027-040 ECS 189G % [K[?2004heexit[?2004l
+
+Script done on Tue Apr 11 19:44:25 2023

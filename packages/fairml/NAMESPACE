@@ -1,0 +1,45 @@
+export(
+  # models.
+  "nclm", "frrm", "fgrrm", "zlm", "zlrm",
+  # training and benchmarking models.
+  "fairml.cv", "cv.loss", "cv.unfairness", "cv.folds",
+  # diagnostic plots.
+  "fairness.profile.plot"
+)
+
+importFrom("methods", "is")
+importFrom("stats", "var", "sd", "cov", "cor", "coef", "residuals", "fitted",
+  "sigma", "deviance", "nobs", "lm", "model.frame", "model.matrix", "formula",
+  "predict", "weighted.mean", "optimize", "anova", "glm", "logLik")
+importFrom("optiSolve", "cop", "solvecop", "linfun", "quadfun", "quadcon",
+  "validate")
+importFrom("glmnet", "glmnet")
+importFrom("grDevices", "dev.cur")
+importFrom("graphics", "plot.new", "strwidth")
+importFrom("parallel", "parSapplyLB", "clusterEvalQ")
+
+import("CVXR")
+
+S3method(predict, "nclm")
+S3method(predict, "frrm")
+S3method(predict, "fgrrm")
+S3method(predict, "zlm")
+S3method(predict, "zlrm")
+
+S3method(print, "fair.model")
+S3method(summary, "fair.model")
+S3method(all.equal, "fair.model")
+S3method(coef, "fair.model")
+S3method(fitted, "fair.model")
+S3method(residuals, "fair.model")
+S3method(sigma, "fair.model")
+S3method(deviance, "fair.model")
+S3method(logLik, "fair.model")
+S3method(nobs, "fair.model")
+S3method(predict, "fair.model")
+S3method(plot, "fair.model")
+
+S3method(print, "summary.fair.model")
+
+S3method(print, "fair.kcv")
+S3method(print, "fair.kcv.list")
