@@ -1,14 +1,15 @@
 # ======================= FILE INFO ======================= #
-# :: ECS 189G: Term Project :: 
-# Authored by Arjun A., HW Group 7
-#
-# This file defines utility for exploring, analyzing, and experimenting with
-# the FairML dataset 'drug.consumption' by Scutari
+# :: ECS 189G: Term Project
+# :: Authored by Arjun A., HW Group 7
+# 
+# :: This file defines utility for exploring, analyzing, and experimenting with
+# :: the FairML dataset 'drug.consumption' by Scutari
 
 
 # =============== FAIRNESS-UTILITY TRADEOFF =============== #
 # :: Fairness-utility tradeoff with or without a specific sensitive var
 # :: Originally written for Homework 1, Problem1. Original source code in Homework1>Problem1.R
+# :: Returns a dataframe with fairness-utility for the sensitive feature
 fu_tradeoff <- function(data, yName, sName, maxFeatureSetSize)
 {
     # libraries #
@@ -78,5 +79,13 @@ fu_tradeoff <- function(data, yName, sName, maxFeatureSetSize)
 }
 
 
-# ===============  =============== #
-# :: 
+# =============== SENSITIVE CORRELATIONS =============== #
+# :: Calculates the correlation between a dataframe with 1+ sensitive vars, 0+ numerical columns,
+#    and 0+ categorical columns. Uses pearson correlation for numeric, kendall-tau correlation for
+#    categorical correlation. Y must be an underlying numeric variable, though this can be in the 
+#    form of a factor with numeric-based levels.
+# :: Returns a dataframe with correlation values for each column against each other column
+sens_cors <- function(data, sens_cols, y_col, numeric_cols=NULL, categ_cols=NULL)
+{
+
+}

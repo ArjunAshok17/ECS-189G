@@ -1,8 +1,8 @@
 # =============== FILE INFO ================ #
-# :: ECS 189G: Term Project :: 
-# Authored by Arjun A., HW Group 7
+# :: ECS 189G: Term Project
+# :: Authored by Arjun A., HW Group 7
 #
-# This file is an exploration into the `drug.consumption` dataset in FairML by Scutari
+# :: This file is an exploration into the `drug.consumption` dataset in FairML by Scutari
 
 
 # =============== DATA FORMAT INFO =============== #
@@ -72,6 +72,9 @@ sensitive_feats <- dc[, sensitive_cols]
 potential_proxies <- dc[, !names(dc) %in% sensitive_cols]
 
 # find correlations from every potential proxy to every sensitive feature
+# numerical correlations
+
+# categorical correlations
 
 
 # measure utility gained from each sensitive var
