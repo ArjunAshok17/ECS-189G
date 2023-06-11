@@ -1,16 +1,37 @@
 # ======================= FILE INFO ======================= #
 # :: ECS 189G: Term Project
-# :: Authored by Arjun A., HW Group 7
+# :: Authored by Arjun Ashok, HW Group 7
 # 
 # :: This file defines utility for exploring, analyzing, and experimenting with
 # :: the FairML dataset 'drug.consumption' by Scutari
+
+
+# =============== FEATURE ENGINEEERING =============== #
+# :: Converts a predictive, sensitive, proxy, or other feature into its numeric 
+#    constituents on the assumption that they can be converted into a numeric representation
+# :: Returns a dataframe with the converted columns
+conv_numeric_factors <- function(data, cols, weighting)
+{
+    # for each column
+    for (col in cols)
+    {
+        # replace w/ matching values
+        data[[col]] <- ifelse(
+            data[[col]] %in% weighting$level, 
+            weighting$weight[match(data[[col]], weighting$level)], 
+            data[[col]]
+        )
+    }
+
+    return(data)
+}
 
 
 # =============== FAIRNESS-UTILITY TRADEOFF =============== #
 # :: Fairness-utility tradeoff with or without a specific sensitive var
 # :: Originally written for Homework 1, Problem1. Original source code in Homework1>Problem1.R
 # :: Returns a dataframe with fairness-utility for the sensitive feature
-fu_tradeoff <- function(data, yName, sName, maxFeatureSetSize)
+fair_util_tradeoff <- function(data, yName, sName, maxFeatureSetSize=1)
 {
     # libraries #
     require(qeML)
@@ -79,13 +100,84 @@ fu_tradeoff <- function(data, yName, sName, maxFeatureSetSize)
 }
 
 
-# =============== SENSITIVE CORRELATIONS =============== #
+# =============== CORRELATIONS =============== #
 # :: Calculates the correlation between a dataframe with 1+ sensitive vars, 0+ numerical columns,
 #    and 0+ categorical columns. Uses pearson correlation for numeric, kendall-tau correlation for
 #    categorical correlation. Y must be an underlying numeric variable, though this can be in the 
 #    form of a factor with numeric-based levels.
-# :: Returns a dataframe with correlation values for each column against each other column
-sens_cors <- function(data, sens_cols, y_col, numeric_cols=NULL, categ_cols=NULL)
+# :: Returns a dataframe with correlation values for each feature against each sensitive feature
+sens_cors <- function(data, sens_cols, y_col, numeric_cols=vector(length=0), categ_cols=vector(length=0))
 {
+    # error check #
+    num_numeric <- length(numeric_cols)
+    num_categ <- length(categ_cols)
+    if (num_numeric == 0 && num_categ == 0)
+    {
+        # error message, empty return
+        print(" ### ERROR: invalid use of sens_cors(), must include values for one of [numeric_cols, categ_cols]")
+        return(NULL)
+    }
 
+    # calculate correlations #
+    # define subset data
+    data <- data[, !names(data) %in% sens_cols]
+    data[, numeric_cols] <- lapply(data[, numeric_cols], as.numeric)
+
+    # matrices
+    numeric_matrix <- cor(data[, numeric_cols], method = "pearson")
+    categ_matrix <- cor(data[, categ_cols], method = "kendall")
+
+    # combine into one
+    corr_matrix <- matrix(NA, nrow = num_numeric_cols + num_categ_cols, ncol = num_numeric_cols + num_categ_cols)
+    corr_matrix[1:num_numeric, 1:num_numeric] <- numeric_matrix
+    corr_matrix[(num_numeric + 1):(num_numeric + num_categ), (num_numeric + 1):(num_numeric + num_categ)] <- categ_matrix
+
+
+    # labeled dataframe #
+    labels <- c(numeric_cols, categ_cols)
+    corr_df <- data.frame(corr_matrix, row.names = labels)
+    names(corr_df) <- labels
+
+    return(corr_df)
 }
+
+# :: Calculates a correlation matrix for all columns in a dataframe to detect/diagnose collinearity
+#    between multiple features, etc. Sensitive columns are excluded since their correlation is 
+#    better diagnosed in a different context. Numeric columns will be forced to numeric values.
+# :: Returns a correlation matrix with correlation values for each column against each other column
+cor_matrix <- function(data, sens_cols, y_col, numeric_cols=vector(length=0), categ_cols=vector(length=0))
+{
+    # error check #
+    num_numeric <- length(numeric_cols)
+    num_categ <- length(categ_cols)
+    if (num_numeric == 0 && num_categ == 0)
+    {
+        # error message, empty return
+        print(" ### ERROR: invalid use of sens_cors(), must include values for one of [numeric_cols, categ_cols]")
+        return(NULL)
+    }
+
+
+    # calculate correlation matrix #
+    # define subset data
+    data <- data[, !names(data) %in% sens_cols]
+    data[, numeric_cols] <- lapply(data[, numeric_cols], as.numeric)
+
+    # matrices
+    numeric_matrix <- cor(data[, numeric_cols], method = "pearson")
+    categ_matrix <- cor(data[, categ_cols], method = "kendall")
+
+    # combine into one
+    corr_matrix <- matrix(NA, nrow = num_numeric_cols + num_categ_cols, ncol = num_numeric_cols + num_categ_cols)
+    corr_matrix[1:num_numeric, 1:num_numeric] <- numeric_matrix
+    corr_matrix[(num_numeric + 1):(num_numeric + num_categ), (num_numeric + 1):(num_numeric + num_categ)] <- categ_matrix
+
+
+    # labeled dataframe #
+    labels <- c(numeric_cols, categ_cols)
+    corr_df <- data.frame(corr_matrix, row.names = labels)
+    names(corr_df) <- labels
+
+    return(corr_df)
+}
+
