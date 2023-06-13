@@ -33,7 +33,9 @@ III. Methodology \
 
 IV. Evaluation \
     (a) Evaluation Criteria \
-    (b) Performance in Fairness & Utility
+    (b) Prior Work
+    (c) Performance in Fairness & Utility
+    (d) Conclusion
 
 V. Acknowledgements \
     (a) General \
