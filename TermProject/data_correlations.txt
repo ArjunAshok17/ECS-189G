@@ -1,0 +1,252 @@
+[1] "=========== SENSITIVE CORRELATIONS ==========="
+[1] "=========== CORRELATION MATRIX ==========="
+               Nscore      Escore      Oscore      Ascore      Cscore
+Nscore     1.00000000 -0.43296725  0.01662559 -0.21514520 -0.39867855
+Escore    -0.43296725  1.00000000  0.23606577  0.15906490  0.31878011
+Oscore     0.01662559  0.23606577  1.00000000  0.03280548 -0.05999592
+Ascore    -0.21514520  0.15906490  0.03280548  1.00000000  0.24960861
+Cscore    -0.39867855  0.31878011 -0.05999592  0.24960861  1.00000000
+Impulsive  0.17846388  0.10887039  0.26548643 -0.23637120 -0.35330974
+SS         0.08131621  0.20231844  0.42100423 -0.21585095 -0.23568106
+            Impulsive          SS
+Nscore     0.17846388  0.08131621
+Escore     0.10887039  0.20231844
+Oscore     0.26548643  0.42100423
+Ascore    -0.23637120 -0.21585095
+Cscore    -0.35330974 -0.23568106
+Impulsive  1.00000000  0.61981267
+SS         0.61981267  1.00000000
+                                                            18-24        25-34
+18-24                                                 1.000000000 -0.421146963
+25-34                                                -0.421146963  1.000000000
+35-44                                                -0.347188990 -0.282429619
+45-54                                                -0.309302382 -0.251609804
+55-64                                                -0.163914420 -0.133340309
+65+                                                  -0.070649449 -0.057471572
+Male                                                  0.188730897 -0.130515537
+Female                                               -0.188730897  0.130515537
+Left school before 16 years                          -0.005098757 -0.041694307
+Left school at 16 years                              -0.089141780 -0.055979868
+Left school at 17 years                               0.015795936 -0.016094071
+Left school at 18 years                               0.134243744 -0.046241840
+Some college or university, no certificate or degree  0.399974841 -0.121145202
+Professional certificate/diploma                     -0.156843114 -0.058692850
+University degree                                    -0.096923200  0.076860176
+Masters degree                                       -0.167710658  0.145758730
+Doctorate degree                                     -0.149620165  0.087721244
+                                                            35-44        45-54
+18-24                                                -0.347188990 -0.309302382
+25-34                                                -0.282429619 -0.251609804
+35-44                                                 1.000000000 -0.207424395
+45-54                                                -0.207424395  1.000000000
+55-64                                                -0.109924305 -0.097928938
+65+                                                  -0.047378941 -0.042208767
+Male                                                 -0.065315757 -0.032395302
+Female                                                0.065315757  0.032395302
+Left school before 16 years                          -0.025636914  0.019736716
+Left school at 16 years                               0.050449286  0.108538133
+Left school at 17 years                               0.003619755 -0.007933569
+Left school at 18 years                              -0.065830856 -0.043034615
+Some college or university, no certificate or degree -0.145476628 -0.168009058
+Professional certificate/diploma                      0.150927257  0.095533035
+University degree                                     0.019748094  0.010522524
+Masters degree                                        0.002097561  0.036271144
+Doctorate degree                                      0.039566821  0.035287865
+                                                            55-64          65+
+18-24                                                -0.163914420 -0.070649449
+25-34                                                -0.133340309 -0.057471572
+35-44                                                -0.109924305 -0.047378941
+45-54                                                -0.097928938 -0.042208767
+55-64                                                 1.000000000 -0.022368485
+65+                                                  -0.022368485  1.000000000
+Male                                                  0.017026125  0.010857832
+Female                                               -0.017026125 -0.010857832
+Left school before 16 years                           0.053024881  0.123224814
+Left school at 16 years                               0.001269953  0.074697303
+Left school at 17 years                               0.010176139 -0.012486846
+Left school at 18 years                              -0.010204297  0.001097467
+Some college or university, no certificate or degree -0.071663463 -0.034858827
+Professional certificate/diploma                      0.025725738  0.006567356
+University degree                                     0.024280361 -0.044870216
+Masters degree                                        0.013973634 -0.010726427
+Doctorate degree                                      0.007033690  0.029580308
+                                                             Male       Female
+18-24                                                 0.188730897 -0.188730897
+25-34                                                -0.130515537  0.130515537
+35-44                                                -0.065315757  0.065315757
+45-54                                                -0.032395302  0.032395302
+55-64                                                 0.017026125 -0.017026125
+65+                                                   0.010857832 -0.010857832
+Male                                                  1.000000000 -1.000000000
+Female                                               -1.000000000  1.000000000
+Left school before 16 years                           0.017476695 -0.017476695
+Left school at 16 years                               0.030791227 -0.030791227
+Left school at 17 years                               0.008410614 -0.008410614
+Left school at 18 years                               0.061413982 -0.061413982
+Some college or university, no certificate or degree  0.196008580 -0.196008580
+Professional certificate/diploma                     -0.003245652  0.003245652
+University degree                                    -0.129386568  0.129386568
+Masters degree                                       -0.111610573  0.111610573
+Doctorate degree                                     -0.062648595  0.062648595
+                                                     Left school before 16 years
+18-24                                                               -0.005098757
+25-34                                                               -0.041694307
+35-44                                                               -0.025636914
+45-54                                                                0.019736716
+55-64                                                                0.053024881
+65+                                                                  0.123224814
+Male                                                                 0.017476695
+Female                                                              -0.017476695
+Left school before 16 years                                          1.000000000
+Left school at 16 years                                             -0.028910123
+Left school at 17 years                                             -0.015615710
+Left school at 18 years                                             -0.029063904
+Some college or university, no certificate or degree                -0.074381715
+Professional certificate/diploma                                    -0.050207510
+University degree                                                   -0.071772078
+Masters degree                                                      -0.051610139
+Doctorate degree                                                    -0.027334737
+                                                     Left school at 16 years
+18-24                                                           -0.089141780
+25-34                                                           -0.055979868
+35-44                                                            0.050449286
+45-54                                                            0.108538133
+55-64                                                            0.001269953
+65+                                                              0.074697303
+Male                                                             0.030791227
+Female                                                          -0.030791227
+Left school before 16 years                                     -0.028910123
+Left school at 16 years                                          1.000000000
+Left school at 17 years                                         -0.029940948
+Left school at 18 years                                         -0.055725986
+Some college or university, no certificate or degree            -0.142616573
+Professional certificate/diploma                                -0.096265903
+University degree                                               -0.137612957
+Masters degree                                                  -0.098955248
+Doctorate degree                                                -0.052410549
+                                                     Left school at 17 years
+18-24                                                            0.015795936
+25-34                                                           -0.016094071
+35-44                                                            0.003619755
+45-54                                                           -0.007933569
+55-64                                                            0.010176139
+65+                                                             -0.012486846
+Male                                                             0.008410614
+Female                                                          -0.008410614
+Left school before 16 years                                     -0.015615710
+Left school at 16 years                                         -0.029940948
+Left school at 17 years                                          1.000000000
+Left school at 18 years                                         -0.030100212
+Some college or university, no certificate or degree            -0.077033884
+Professional certificate/diploma                                -0.051997719
+University degree                                               -0.074331197
+Masters degree                                                  -0.053450360
+Doctorate degree                                                -0.028309390
+                                                     Left school at 18 years
+18-24                                                            0.134243744
+25-34                                                           -0.046241840
+35-44                                                           -0.065830856
+45-54                                                           -0.043034615
+55-64                                                           -0.010204297
+65+                                                              0.001097467
+Male                                                             0.061413982
+Female                                                          -0.061413982
+Left school before 16 years                                     -0.029063904
+Left school at 16 years                                         -0.055725986
+Left school at 17 years                                         -0.030100212
+Left school at 18 years                                          1.000000000
+Some college or university, no certificate or degree            -0.143375193
+Professional certificate/diploma                                -0.096777970
+University degree                                               -0.138344961
+Masters degree                                                  -0.099481621
+Doctorate degree                                                -0.052689336
+                                                     Some college or university, no certificate or degree
+18-24                                                                                         0.399974841
+25-34                                                                                        -0.121145202
+35-44                                                                                        -0.145476628
+45-54                                                                                        -0.168009058
+55-64                                                                                        -0.071663463
+65+                                                                                          -0.034858827
+Male                                                                                          0.196008580
+Female                                                                                       -0.196008580
+Left school before 16 years                                                                  -0.074381715
+Left school at 16 years                                                                      -0.142616573
+Left school at 17 years                                                                      -0.077033884
+Left school at 18 years                                                                      -0.143375193
+Some college or university, no certificate or degree                                          1.000000000
+Professional certificate/diploma                                                             -0.247678748
+University degree                                                                            -0.354058954
+Masters degree                                                                               -0.254598058
+Doctorate degree                                                                             -0.134845036
+                                                     Professional certificate/diploma
+18-24                                                                    -0.156843114
+25-34                                                                    -0.058692850
+35-44                                                                     0.150927257
+45-54                                                                     0.095533035
+55-64                                                                     0.025725738
+65+                                                                       0.006567356
+Male                                                                     -0.003245652
+Female                                                                    0.003245652
+Left school before 16 years                                              -0.050207510
+Left school at 16 years                                                  -0.096265903
+Left school at 17 years                                                  -0.051997719
+Left school at 18 years                                                  -0.096777970
+Some college or university, no certificate or degree                     -0.247678748
+Professional certificate/diploma                                          1.000000000
+University degree                                                        -0.238989090
+Masters degree                                                           -0.171853183
+Doctorate degree                                                         -0.091020131
+                                                     University degree
+18-24                                                     -0.096923200
+25-34                                                      0.076860176
+35-44                                                      0.019748094
+45-54                                                      0.010522524
+55-64                                                      0.024280361
+65+                                                       -0.044870216
+Male                                                      -0.129386568
+Female                                                     0.129386568
+Left school before 16 years                               -0.071772078
+Left school at 16 years                                   -0.137612957
+Left school at 17 years                                   -0.074331197
+Left school at 18 years                                   -0.138344961
+Some college or university, no certificate or degree      -0.354058954
+Professional certificate/diploma                          -0.238989090
+University degree                                          1.000000000
+Masters degree                                            -0.245665640
+Doctorate degree                                          -0.130114080
+                                                     Masters degree
+18-24                                                  -0.167710658
+25-34                                                   0.145758730
+35-44                                                   0.002097561
+45-54                                                   0.036271144
+55-64                                                   0.013973634
+65+                                                    -0.010726427
+Male                                                   -0.111610573
+Female                                                  0.111610573
+Left school before 16 years                            -0.051610139
+Left school at 16 years                                -0.098955248
+Left school at 17 years                                -0.053450360
+Left school at 18 years                                -0.099481621
+Some college or university, no certificate or degree   -0.254598058
+Professional certificate/diploma                       -0.171853183
+University degree                                      -0.245665640
+Masters degree                                          1.000000000
+Doctorate degree                                       -0.093562927
+                                                     Doctorate degree
+18-24                                                    -0.149620165
+25-34                                                     0.087721244
+35-44                                                     0.039566821
+45-54                                                     0.035287865
+55-64                                                     0.007033690
+65+                                                       0.029580308
+Male                                                     -0.062648595
+Female                                                    0.062648595
+Left school before 16 years                              -0.027334737
+Left school at 16 years                                  -0.052410549
+Left school at 17 years                                  -0.028309390
+Left school at 18 years                                  -0.052689336
+Some college or university, no certificate or degree     -0.134845036
+Professional certificate/diploma                         -0.091020131
+University degree                                        -0.130114080
+Masters degree                                           -0.093562927
+Doctorate degree                                          1.000000000

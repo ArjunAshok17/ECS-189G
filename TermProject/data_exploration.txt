@@ -1,0 +1,361 @@
+[1] "=========== DIMENSIONS ==========="
+[1] 1885   31
+[1] "=========== SUMMARY ==========="
+    Age         Gender   
+ 18-24:643   Male  :943  
+ 25-34:481   Female:942  
+ 35-44:356               
+ 45-54:294               
+ 55-64: 93               
+ 65+  : 18               
+                         
+                                                Education  
+ Some college or university, no certificate or degree:506  
+ University degree                                   :480  
+ Masters degree                                      :283  
+ Professional certificate/diploma                    :270  
+ Left school at 18 years                             :100  
+ Left school at 16 years                             : 99  
+ (Other)                                             :147  
+                Country                    Race          Nscore     
+ USA                : 557   Black            :  33   Min.   :12.00  
+ New Zealand        :   5   Asian            :  26   1st Qu.:29.00  
+ Other              : 118   White            :1720   Median :36.00  
+ Australia          :  54   Mixed-White/Black:  20   Mean   :35.92  
+ Republic of Ireland:  20   Other            :  63   3rd Qu.:42.00  
+ Canada             :  87   Mixed-White/Asian:  20   Max.   :60.00  
+ UK                 :1044   Mixed-Black/Asian:   3                  
+     Escore          Oscore          Ascore          Cscore     
+ Min.   :16.00   Min.   :24.00   Min.   :12.00   Min.   :17.00  
+ 1st Qu.:35.00   1st Qu.:41.00   1st Qu.:39.00   1st Qu.:37.00  
+ Median :40.00   Median :46.00   Median :43.00   Median :42.00  
+ Mean   :39.58   Mean   :45.76   Mean   :42.87   Mean   :41.44  
+ 3rd Qu.:44.00   3rd Qu.:51.00   3rd Qu.:48.00   3rd Qu.:46.00  
+ Max.   :59.00   Max.   :60.00   Max.   :60.00   Max.   :59.00  
+                                                                
+   Impulsive            SS                           Alcohol   
+ Min.   : 1.000   Min.   : 0.000   Never Used            : 34  
+ 1st Qu.: 3.000   1st Qu.: 4.000   Used over a Decade Ago: 34  
+ Median : 4.000   Median : 6.000   Used in Last Decade   : 68  
+ Mean   : 4.801   Mean   : 5.561   Used in Last Year     :198  
+ 3rd Qu.: 6.000   3rd Qu.: 8.000   Used in Last Month    :287  
+ Max.   :10.000   Max.   :10.000   Used in Last Week     :759  
+                                   Used in Last Day      :505  
+                    Amphet                        Amyl     
+ Never Used            :976   Never Used            :1305  
+ Used over a Decade Ago:230   Used over a Decade Ago: 210  
+ Used in Last Decade   :243   Used in Last Decade   : 237  
+ Used in Last Year     :198   Used in Last Year     :  92  
+ Used in Last Month    : 75   Used in Last Month    :  24  
+ Used in Last Week     : 61   Used in Last Week     :  14  
+ Used in Last Day      :102   Used in Last Day      :   3  
+                    Benzos                         Caff     
+ Never Used            :1000   Never Used            :  27  
+ Used over a Decade Ago: 116   Used over a Decade Ago:  10  
+ Used in Last Decade   : 234   Used in Last Decade   :  24  
+ Used in Last Year     : 236   Used in Last Year     :  60  
+ Used in Last Month    : 120   Used in Last Month    : 106  
+ Used in Last Week     :  84   Used in Last Week     : 273  
+ Used in Last Day      :  95   Used in Last Day      :1385  
+                   Cannabis                       Choc    
+ Never Used            :413   Never Used            : 32  
+ Used over a Decade Ago:207   Used over a Decade Ago:  3  
+ Used in Last Decade   :266   Used in Last Decade   : 10  
+ Used in Last Year     :211   Used in Last Year     : 54  
+ Used in Last Month    :140   Used in Last Month    :296  
+ Used in Last Week     :185   Used in Last Week     :683  
+ Used in Last Day      :463   Used in Last Day      :807  
+                     Coke                         Crack     
+ Never Used            :1038   Never Used            :1627  
+ Used over a Decade Ago: 160   Used over a Decade Ago:  67  
+ Used in Last Decade   : 270   Used in Last Decade   : 112  
+ Used in Last Year     : 258   Used in Last Year     :  59  
+ Used in Last Month    :  99   Used in Last Month    :   9  
+ Used in Last Week     :  41   Used in Last Week     :   9  
+ Used in Last Day      :  19   Used in Last Day      :   2  
+                   Ecstasy                        Heroin    
+ Never Used            :1021   Never Used            :1605  
+ Used over a Decade Ago: 113   Used over a Decade Ago:  68  
+ Used in Last Decade   : 234   Used in Last Decade   :  94  
+ Used in Last Year     : 277   Used in Last Year     :  65  
+ Used in Last Month    : 156   Used in Last Month    :  24  
+ Used in Last Week     :  63   Used in Last Week     :  16  
+ Used in Last Day      :  21   Used in Last Day      :  13  
+                   Ketamine                       Legalh    
+ Never Used            :1490   Never Used            :1094  
+ Used over a Decade Ago:  45   Used over a Decade Ago:  29  
+ Used in Last Decade   : 142   Used in Last Decade   : 198  
+ Used in Last Year     : 129   Used in Last Year     : 323  
+ Used in Last Month    :  42   Used in Last Month    : 110  
+ Used in Last Week     :  33   Used in Last Week     :  64  
+ Used in Last Day      :   4   Used in Last Day      :  67  
+                     LSD                           Meth     
+ Never Used            :1069   Never Used            :1429  
+ Used over a Decade Ago: 259   Used over a Decade Ago:  39  
+ Used in Last Decade   : 177   Used in Last Decade   :  97  
+ Used in Last Year     : 214   Used in Last Year     : 149  
+ Used in Last Month    :  97   Used in Last Month    :  50  
+ Used in Last Week     :  56   Used in Last Week     :  48  
+ Used in Last Day      :  13   Used in Last Day      :  73  
+                  Mushrooms                     Nicotine  
+ Never Used            :982   Never Used            :428  
+ Used over a Decade Ago:209   Used over a Decade Ago:193  
+ Used in Last Decade   :260   Used in Last Decade   :204  
+ Used in Last Year     :275   Used in Last Year     :185  
+ Used in Last Month    :115   Used in Last Month    :108  
+ Used in Last Week     : 40   Used in Last Week     :157  
+ Used in Last Day      :  4   Used in Last Day      :610  
+                    Semer                          VSA      
+ Never Used            :1877   Never Used            :1455  
+ Used over a Decade Ago:   2   Used over a Decade Ago: 200  
+ Used in Last Decade   :   3   Used in Last Decade   : 135  
+ Used in Last Year     :   2   Used in Last Year     :  61  
+ Used in Last Month    :   1   Used in Last Month    :  13  
+ Used in Last Week     :   0   Used in Last Week     :  14  
+ Used in Last Day      :   0   Used in Last Day      :   7  
+[1] "=========== EXPLORE DATA ==========="
+    Age Gender                        Education Country              Race
+1 35-44 Female Professional certificate/diploma      UK Mixed-White/Asian
+2 25-34   Male                 Doctorate degree      UK             White
+3 35-44   Male Professional certificate/diploma      UK             White
+4 18-24 Female                   Masters degree      UK             White
+5 35-44 Female                 Doctorate degree      UK             White
+6   65+ Female          Left school at 18 years  Canada             White
+  Nscore Escore Oscore Ascore Cscore Impulsive SS             Alcohol
+1     39     36     42     37     42         4  2   Used in Last Week
+2     29     52     55     48     41         3  5   Used in Last Week
+3     31     45     40     32     34         2  7    Used in Last Day
+4     34     34     46     47     46         2  2  Used in Last Month
+5     43     28     43     41     50         4  5  Used in Last Month
+6     29     38     35     55     52         2  1 Used in Last Decade
+                  Amphet                   Amyl              Benzos
+1    Used in Last Decade             Never Used Used in Last Decade
+2    Used in Last Decade    Used in Last Decade          Never Used
+3             Never Used             Never Used          Never Used
+4             Never Used             Never Used   Used in Last Year
+5 Used over a Decade Ago Used over a Decade Ago          Never Used
+6             Never Used             Never Used          Never Used
+               Caff            Cannabis               Choc                Coke
+1  Used in Last Day          Never Used  Used in Last Week          Never Used
+2  Used in Last Day  Used in Last Month   Used in Last Day   Used in Last Year
+3  Used in Last Day   Used in Last Year Used in Last Month          Never Used
+4 Used in Last Week Used in Last Decade Used in Last Month Used in Last Decade
+5  Used in Last Day   Used in Last Year   Used in Last Day          Never Used
+6  Used in Last Day          Never Used Used in Last Month          Never Used
+       Crack                Ecstasy     Heroin            Ketamine
+1 Never Used             Never Used Never Used          Never Used
+2 Never Used     Used in Last Month Never Used Used in Last Decade
+3 Never Used             Never Used Never Used          Never Used
+4 Never Used             Never Used Never Used Used in Last Decade
+5 Never Used Used over a Decade Ago Never Used          Never Used
+6 Never Used             Never Used Never Used          Never Used
+                  Legalh                 LSD              Meth
+1             Never Used          Never Used        Never Used
+2             Never Used Used in Last Decade Used in Last Year
+3             Never Used          Never Used        Never Used
+4             Never Used          Never Used        Never Used
+5 Used over a Decade Ago          Never Used        Never Used
+6             Never Used          Never Used        Never Used
+               Mushrooms            Nicotine      Semer        VSA
+1             Never Used Used in Last Decade Never Used Never Used
+2             Never Used  Used in Last Month Never Used Never Used
+3 Used over a Decade Ago          Never Used Never Used Never Used
+4             Never Used Used in Last Decade Never Used Never Used
+5    Used in Last Decade Used in Last Decade Never Used Never Used
+6             Never Used    Used in Last Day Never Used Never Used
+[1] "=========== FEATURES ==========="
+ [1] "Age"       "Gender"    "Education" "Country"   "Race"      "Nscore"   
+ [7] "Escore"    "Oscore"    "Ascore"    "Cscore"    "Impulsive" "SS"       
+[13] "Alcohol"   "Amphet"    "Amyl"      "Benzos"    "Caff"      "Cannabis" 
+[19] "Choc"      "Coke"      "Crack"     "Ecstasy"   "Heroin"    "Ketamine" 
+[25] "Legalh"    "LSD"       "Meth"      "Mushrooms" "Nicotine"  "Semer"    
+[31] "VSA"      
+[1] "=========== UNIQUE VALUES ==========="
+$Age
+[1] 35-44 25-34 18-24 65+   45-54 55-64
+Levels: 18-24 25-34 35-44 45-54 55-64 65+
+
+$Gender
+[1] Female Male  
+Levels: Male Female
+
+$Education
+[1] Professional certificate/diploma                    
+[2] Doctorate degree                                    
+[3] Masters degree                                      
+[4] Left school at 18 years                             
+[5] Left school at 16 years                             
+[6] University degree                                   
+[7] Some college or university, no certificate or degree
+[8] Left school before 16 years                         
+[9] Left school at 17 years                             
+9 Levels: Left school before 16 years ... Doctorate degree
+
+$Country
+[1] UK                  Canada              USA                
+[4] Other               Australia           Republic of Ireland
+[7] New Zealand        
+Levels: USA New Zealand Other Australia Republic of Ireland Canada UK
+
+$Race
+[1] Mixed-White/Asian White             Other             Mixed-White/Black
+[5] Asian             Black             Mixed-Black/Asian
+7 Levels: Black Asian White Mixed-White/Black Other ... Mixed-Black/Asian
+
+$Nscore
+ [1] 39 29 31 34 43 24 42 33 26 56 28 27 19 22 41 49 32 25 40 51 35 36 46 44 37
+[26] 47 23 30 38 18 45 17 53 50 60 21 54 59 48 20 55 16 57 52 58 14 15 13 12
+
+$Escore
+ [1] 36 52 45 34 28 38 32 55 40 41 49 29 31 39 27 43 33 16 44 37 51 42 48 46 47
+[26] 35 50 30 26 58 53 54 23 22 24 19 20 21 25 56 59 18
+
+$Oscore
+ [1] 42 55 40 46 43 35 39 36 38 47 49 34 44 45 29 51 37 54 24 41 52 48 28 53 32
+[26] 33 26 31 50 58 30 56 57 60 59
+
+$Ascore
+ [1] 37 48 32 47 41 55 38 30 49 39 36 45 40 53 50 43 33 46 51 23 44 29 54 42 35
+[26] 34 52 31 57 56 27 25 28 58 26 59 24 18 12 16 60
+
+$Cscore
+ [1] 42 41 34 46 50 52 48 49 43 53 38 36 59 47 31 30 33 35 51 25 37 45 39 44 27
+[26] 40 29 54 55 32 56 20 28 26 22 24 23 19 17 21 57
+
+$Impulsive
+ [1]  4  3  2  5  6  8  9  1  7 10
+
+$SS
+ [1]  2  5  7  1  6  4  3  9  8  0 10
+
+$Alcohol
+[1] Used in Last Week      Used in Last Day       Used in Last Month    
+[4] Used in Last Decade    Used over a Decade Ago Never Used            
+[7] Used in Last Year     
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$Amphet
+[1] Used in Last Decade    Never Used             Used over a Decade Ago
+[4] Used in Last Year      Used in Last Week      Used in Last Month    
+[7] Used in Last Day      
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$Amyl
+[1] Never Used             Used in Last Decade    Used over a Decade Ago
+[4] Used in Last Year      Used in Last Week      Used in Last Month    
+[7] Used in Last Day      
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$Benzos
+[1] Used in Last Decade    Never Used             Used in Last Year     
+[4] Used over a Decade Ago Used in Last Month     Used in Last Week     
+[7] Used in Last Day      
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$Caff
+[1] Used in Last Day       Used in Last Week      Used in Last Month    
+[4] Used in Last Year      Never Used             Used over a Decade Ago
+[7] Used in Last Decade   
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$Cannabis
+[1] Never Used             Used in Last Month     Used in Last Year     
+[4] Used in Last Decade    Used over a Decade Ago Used in Last Day      
+[7] Used in Last Week     
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$Choc
+[1] Used in Last Week      Used in Last Day       Used in Last Month    
+[4] Never Used             Used in Last Year      Used in Last Decade   
+[7] Used over a Decade Ago
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$Coke
+[1] Never Used             Used in Last Year      Used in Last Decade   
+[4] Used over a Decade Ago Used in Last Day       Used in Last Week     
+[7] Used in Last Month    
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$Crack
+[1] Never Used             Used over a Decade Ago Used in Last Decade   
+[4] Used in Last Year      Used in Last Week      Used in Last Month    
+[7] Used in Last Day      
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$Ecstasy
+[1] Never Used             Used in Last Month     Used over a Decade Ago
+[4] Used in Last Year      Used in Last Decade    Used in Last Day      
+[7] Used in Last Week     
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$Heroin
+[1] Never Used             Used over a Decade Ago Used in Last Decade   
+[4] Used in Last Year      Used in Last Week      Used in Last Day      
+[7] Used in Last Month    
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$Ketamine
+[1] Never Used             Used in Last Decade    Used in Last Year     
+[4] Used over a Decade Ago Used in Last Week      Used in Last Month    
+[7] Used in Last Day      
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$Legalh
+[1] Never Used             Used over a Decade Ago Used in Last Decade   
+[4] Used in Last Year      Used in Last Week      Used in Last Month    
+[7] Used in Last Day      
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$LSD
+[1] Never Used             Used in Last Decade    Used over a Decade Ago
+[4] Used in Last Year      Used in Last Month     Used in Last Week     
+[7] Used in Last Day      
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$Meth
+[1] Never Used             Used in Last Year      Used over a Decade Ago
+[4] Used in Last Day       Used in Last Month     Used in Last Decade   
+[7] Used in Last Week     
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$Mushrooms
+[1] Never Used             Used over a Decade Ago Used in Last Decade   
+[4] Used in Last Year      Used in Last Month     Used in Last Week     
+[7] Used in Last Day      
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$Nicotine
+[1] Used in Last Decade    Used in Last Month     Never Used            
+[4] Used in Last Day       Used over a Decade Ago Used in Last Year     
+[7] Used in Last Week     
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$Semer
+[1] Never Used             Used in Last Decade    Used in Last Year     
+[4] Used in Last Month     Used over a Decade Ago
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+$VSA
+[1] Never Used             Used over a Decade Ago Used in Last Year     
+[4] Used in Last Day       Used in Last Decade    Used in Last Week     
+[7] Used in Last Month    
+7 Levels: Never Used Used over a Decade Ago ... Used in Last Day
+
+[1] "=========== UNIQUE LENGTHS ==========="
+      Age    Gender Education   Country      Race    Nscore    Escore    Oscore 
+        6         2         9         7         7        49        42        35 
+   Ascore    Cscore Impulsive        SS   Alcohol    Amphet      Amyl    Benzos 
+       41        41        10        11         7         7         7         7 
+     Caff  Cannabis      Choc      Coke     Crack   Ecstasy    Heroin  Ketamine 
+        7         7         7         7         7         7         7         7 
+   Legalh       LSD      Meth Mushrooms  Nicotine     Semer       VSA 
+        7         7         7         7         7         5         7 
+[1] "=========== NA ENTRIES ==========="
+      Age    Gender Education   Country      Race    Nscore    Escore    Oscore 
+        0         0         0         0         0         0         0         0 
+   Ascore    Cscore Impulsive        SS   Alcohol    Amphet      Amyl    Benzos 
+        0         0         0         0         0         0         0         0 
+     Caff  Cannabis      Choc      Coke     Crack   Ecstasy    Heroin  Ketamine 
+        0         0         0         0         0         0         0         0 
+   Legalh       LSD      Meth Mushrooms  Nicotine     Semer       VSA 
+        0         0         0         0         0         0         0 

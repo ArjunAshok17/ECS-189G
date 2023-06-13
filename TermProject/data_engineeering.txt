@@ -1,0 +1,127 @@
+    Age Gender                        Education Nscore Escore Oscore Ascore
+1 35-44 Female Professional certificate/diploma     39     36     42     37
+2 25-34   Male                 Doctorate degree     29     52     55     48
+3 35-44   Male Professional certificate/diploma     31     45     40     32
+4 18-24 Female                   Masters degree     34     34     46     47
+5 35-44 Female                 Doctorate degree     43     28     43     41
+6   65+ Female          Left school at 18 years     29     38     35     55
+  Cscore Impulsive SS Alcohol     Amphet       Amyl Benzos   Caff Cannabis
+1     42         4  2   52.00 0.10000000 0.00000000    0.1 365.25      0.0
+2     41         3  5   52.00 0.10000000 0.10000000    0.0 365.25     12.0
+3     34         2  7  365.25 0.00000000 0.00000000    0.0 365.25      1.0
+4     46         2  2   12.00 0.00000000 0.00000000    1.0  52.00      0.1
+5     50         4  5   12.00 0.04251145 0.04251145    0.0 365.25      1.0
+6     52         2  1    0.10 0.00000000 0.00000000    0.0 365.25      0.0
+    Choc Coke Crack     Ecstasy Heroin Ketamine     Legalh LSD Meth  Mushrooms
+1  52.00  0.0     0  0.00000000      0      0.0 0.00000000 0.0    0 0.00000000
+2 365.25  1.0     0 12.00000000      0      0.1 0.00000000 0.1    1 0.00000000
+3  12.00  0.0     0  0.00000000      0      0.0 0.00000000 0.0    0 0.04251145
+4  12.00  0.1     0  0.00000000      0      0.1 0.00000000 0.0    0 0.00000000
+5 365.25  0.0     0  0.04251145      0      0.0 0.04251145 0.0    0 0.10000000
+6  12.00  0.0     0  0.00000000      0      0.0 0.00000000 0.0    0 0.00000000
+  Nicotine Semer VSA
+1     0.10     0   0
+2    12.00     0   0
+3     0.00     0   0
+4     0.10     0   0
+5     0.10     0   0
+6   365.25     0   0
+ [1] "Nscore"                                              
+ [2] "Escore"                                              
+ [3] "Oscore"                                              
+ [4] "Ascore"                                              
+ [5] "Cscore"                                              
+ [6] "Impulsive"                                           
+ [7] "SS"                                                  
+ [8] "Alcohol"                                             
+ [9] "Amphet"                                              
+[10] "Amyl"                                                
+[11] "Benzos"                                              
+[12] "Caff"                                                
+[13] "Cannabis"                                            
+[14] "Choc"                                                
+[15] "Coke"                                                
+[16] "Crack"                                               
+[17] "Ecstasy"                                             
+[18] "Heroin"                                              
+[19] "Ketamine"                                            
+[20] "Legalh"                                              
+[21] "LSD"                                                 
+[22] "Meth"                                                
+[23] "Mushrooms"                                           
+[24] "Nicotine"                                            
+[25] "Semer"                                               
+[26] "VSA"                                                 
+[27] "18-24"                                               
+[28] "25-34"                                               
+[29] "35-44"                                               
+[30] "45-54"                                               
+[31] "55-64"                                               
+[32] "65+"                                                 
+[33] "Male"                                                
+[34] "Female"                                              
+[35] "Left school before 16 years"                         
+[36] "Left school at 16 years"                             
+[37] "Left school at 17 years"                             
+[38] "Left school at 18 years"                             
+[39] "Some college or university, no certificate or degree"
+[40] "Professional certificate/diploma"                    
+[41] "University degree"                                   
+[42] "Masters degree"                                      
+[43] "Doctorate degree"                                    
+  Nscore Escore Oscore Ascore Cscore Impulsive SS Alcohol     Amphet       Amyl
+1     39     36     42     37     42         4  2   52.00 0.10000000 0.00000000
+2     29     52     55     48     41         3  5   52.00 0.10000000 0.10000000
+3     31     45     40     32     34         2  7  365.25 0.00000000 0.00000000
+4     34     34     46     47     46         2  2   12.00 0.00000000 0.00000000
+5     43     28     43     41     50         4  5   12.00 0.04251145 0.04251145
+6     29     38     35     55     52         2  1    0.10 0.00000000 0.00000000
+  Benzos   Caff Cannabis   Choc Coke Crack     Ecstasy Heroin Ketamine
+1    0.1 365.25      0.0  52.00  0.0     0  0.00000000      0      0.0
+2    0.0 365.25     12.0 365.25  1.0     0 12.00000000      0      0.1
+3    0.0 365.25      1.0  12.00  0.0     0  0.00000000      0      0.0
+4    1.0  52.00      0.1  12.00  0.1     0  0.00000000      0      0.1
+5    0.0 365.25      1.0 365.25  0.0     0  0.04251145      0      0.0
+6    0.0 365.25      0.0  12.00  0.0     0  0.00000000      0      0.0
+      Legalh LSD Meth  Mushrooms Nicotine Semer VSA 18-24 25-34 35-44 45-54
+1 0.00000000 0.0    0 0.00000000     0.10     0   0     0     0     1     0
+2 0.00000000 0.1    1 0.00000000    12.00     0   0     0     1     0     0
+3 0.00000000 0.0    0 0.04251145     0.00     0   0     0     0     1     0
+4 0.00000000 0.0    0 0.00000000     0.10     0   0     1     0     0     0
+5 0.04251145 0.0    0 0.10000000     0.10     0   0     0     0     1     0
+6 0.00000000 0.0    0 0.00000000   365.25     0   0     0     0     0     0
+  55-64 65+ Male Female Left school before 16 years Left school at 16 years
+1     0   0    0      1                           0                       0
+2     0   0    1      0                           0                       0
+3     0   0    1      0                           0                       0
+4     0   0    0      1                           0                       0
+5     0   0    0      1                           0                       0
+6     0   1    0      1                           0                       0
+  Left school at 17 years Left school at 18 years
+1                       0                       0
+2                       0                       0
+3                       0                       0
+4                       0                       0
+5                       0                       0
+6                       0                       1
+  Some college or university, no certificate or degree
+1                                                    0
+2                                                    0
+3                                                    0
+4                                                    0
+5                                                    0
+6                                                    0
+  Professional certificate/diploma University degree Masters degree
+1                                1                 0              0
+2                                0                 0              0
+3                                1                 0              0
+4                                0                 0              1
+5                                0                 0              0
+6                                0                 0              0
+  Doctorate degree
+1                0
+2                1
+3                0
+4                0
+5                1
+6                0

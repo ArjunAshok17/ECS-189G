@@ -5,9 +5,13 @@
 # :: This file is an exploration into the `drug.consumption` dataset in FairML by Scutari
 
 source("utility.R")
+library(corrplot)
+library(kendall)
 
 
 # =============== DATA FORMAT INFO =============== #
+sink("data_exploration.txt")
+
 # load data
 load("drug.consumption.rda")
 dc <- drug.consumption
@@ -36,6 +40,8 @@ print("=========== UNIQUE LENGTHS ===========")
 print(unique_lengths)
 print("=========== NA ENTRIES ===========")
 print(na_entries)
+
+sink()
 
 
 # =============== NOTED RESULTS =============== #
@@ -77,7 +83,9 @@ print(na_entries)
 #  - No missing entries, no need to account for imputing data etc.
 
 
-# =============== CORRELATIONS =============== #
+# =============== DATA ENGINEERING =============== #
+sink("data_engineeering.txt")
+
 # define features types
 sensitive_cols <- c("Age", "Gender", "Race")
 sensitive_feats <- dc[, sensitive_cols]
@@ -99,14 +107,89 @@ prediction_levels <- levels(factor(predictive_vars_feats[, 1]))
 match_weights <- data.frame(level = prediction_levels, weight = timeline_weighting)
 dc <- conv_numeric_factors(data=dc, cols=predictive_vars_cols, weighting=match_weights)
 
-# find correlations from every potential proxy to every sensitive feature
-# numerical correlations
+# remove useless columns
+remove_cols <- c("Race", "Country")
+keep_cols <- setdiff(names(dc), remove_cols)
+predictive_vars_cols <- setdiff(predictive_vars_cols, remove_cols)
+potential_proxy_cols <- setdiff(potential_proxy_cols, remove_cols)
+sensitive_cols <- setdiff(sensitive_cols, remove_cols)
 
-# categorical correlations
+dc <- dc[, keep_cols]
+print(head(dc))
 
+# one-hot encoding + numerical conversions for features & proxies
+numeric_cols <- strsplit("Nscore,Escore,Oscore,Ascore,Cscore,Impulsive,SS", ",")[[1]]
+categ_cols <- setdiff(setdiff(names(dc), numeric_cols), predictive_vars_cols)
+dc <- one_hot_encode(data=dc, cols=categ_cols)
+
+print(names(dc))
+print(head(dc))
+sink()
+
+
+# =============== CORRELATIONS =============== #
+sink("data_correlations.txt")
+
+print("=========== SENSITIVE CORRELATIONS ===========")
+# find all correlations
+# cor_matrix <- cor_matrix(data=dc, sens_cols=sensitive_cols, numeric_cols=numeric_cols)
+categ_cols <- setdiff(setdiff(names(dc), numeric_cols), predictive_vars_cols)
+num_cor_matrix <- cor(dc[, numeric_cols])
+cat_cor_matrix <- cor(dc[, categ_cols], method = "kendall")
+
+print("=========== CORRELATION MATRIX ===========")
+print.table(num_cor_matrix)
+print.table(cat_cor_matrix)
+write.csv(num_cor_matrix, file = "num_correlation_matrix.csv", row.names = TRUE)
+write.csv(cat_cor_matrix, file = "cat_correlation_matrix.csv", row.names = TRUE)
+
+# save graphics
+par(mfrow = c(1, 2))
+png("num_correlation_plot.png", width = 2500, height = 2500, res = 300)
+colnames(num_cor_matrix) <- substr(names(num_cor_matrix), 1, 8)
+row.names(num_cor_matrix) <- colnames(num_cor_matrix)
+corrplot(num_cor_matrix, method = "color", tl.col = "Black", col.lab = "Black")
+
+png("cat_correlation_plot.png", width = 2500, height = 2500, res = 300)
+colnames(cat_cor_matrix) <- substr(colnames(cat_cor_matrix), 1, 8)
+row.names(cat_cor_matrix) <- colnames(cat_cor_matrix)
+corrplot(cat_cor_matrix, method = "color", tl.col = "Black", col.lab = "Black")
+dev.off()
+
+sink()
+
+
+# =============== TRADEOFFS =============== #
+##### not working #####
+sink("tradeoffs.txt")
+print("=========== Fairness-Utility Tradeoffs ===========")
 
 # measure utility gained from each sensitive var
+utility <- data.frame( matrix(nrow=0, ncol=length(sensitive_cols)) )
+names(utility) <- sensitive_cols
 
+for (y in predictive_vars_cols)
+{
+    # setup storage
+    utility_row <- data.frame()
 
-# measure utility gained from each potential proxy
+    # add each tradeoff
+    for (s in sensitive_cols)
+    {
+        # conversion
+        s_levels <- levels(factor(sensitive_feats[[s]]))
 
+        # get ratio of fairness / utility
+        u <- fair_util_tradeoff(data=dc, yName=y, sName=s_levels)
+        fu_ratio <- (u[["Y Accuracy w/ S"]] - u[["Y Accuracy"]]) / u[["S Accuracy"]]          # store a ratio which loses on feature selection, but still good
+        utility_row <- cbind(utility_row, fu_ratio)
+    }
+
+    # add entry
+    names(utility_row) <- sensitive_cols
+    utility <- rbind(utility, utility_row)
+}
+row.names(utility) <- predictive_vars_cols
+
+print.table(utility)
+sink()

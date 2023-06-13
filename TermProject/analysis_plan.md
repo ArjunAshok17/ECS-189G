@@ -20,22 +20,25 @@ For our own analysis, we employ the lessons learned from our exploration to best
 
 I. Introduction \
     (a) Term defining & background information \
-    (b) Scenario layout & importance \
+    (b) Relevance & Importance \
     (c) Introduce solution \
     (d) Lay out paper's outline
 
-II. Context \
-    (a) Full scenario + importance \
-    (b) Comparison to other papers in this analysis (prior work)
+II. Dataset Exploration
 
 III. Methodology \
-    (a) 
+    (a) Prior Work \
+    (b) Data Engineering \
+    (b) Numerical Approach for Modeling
 
-IV. Evaluation Criteria \
-    (a)
+IV. Evaluation \
+    (a) Evaluation Criteria \
+    (b) Performance in Fairness & Utility
 
-V. Empirical Results & Conclusion
+V. Acknowledgements \
+    (a) General \
+    (b) Author Contributions
 
-VI. Contributions
+VI. Supplementary Materials
 
 VII. References
